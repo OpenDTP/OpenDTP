@@ -1,4 +1,4 @@
 <?php
 
-class ODTPFramwork_Controller extends ODTPFramwork_Rest_Controller {
+class ODTPFramwork_Controller extends Zend_Controller_Action {
 }
