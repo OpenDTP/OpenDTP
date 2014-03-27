@@ -98,7 +98,7 @@ apache:
             override:
                 - None
         aeh2Caij:
-            servername: webgrind.dev
+            servername: opendtp.webgrind.dev
             docroot: /var/www/webgrind
             port: '80'
             override:
@@ -139,7 +139,7 @@ xdebug:
         xdebug.remote_autostart: '0'
         xdebug.remote_connect_back: '1'
         xdebug.remote_enable: '1'
-        xdebug.remote_handler: dbgp
+        xdebug.remote_handler: 'dbgp'
         xdebug.remote_port: '9000'
         xdebug.overload_var_dump: '1'
         xdebug.var_display_max_children: '128'
