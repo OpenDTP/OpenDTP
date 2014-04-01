@@ -203,7 +203,7 @@ body {
   font-size: 18px;
   line-height: 1.72222;
   color: #34495e;
-  background-color: #ffffff;
+  background-color: #2C3E50;
 }
 a {
   color: #16a085;
@@ -219,6 +219,15 @@ a:focus {
 a:focus {
   outline: none;
 }
+.login {
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.top-floater {float:left; height:50%; margin-bottom:-120px;}
 .img-rounded {
   border-radius: 6px;
 }
@@ -1361,6 +1370,9 @@ select[multiple].input-hg {
   font-size: 15px;
   margin-bottom: 5px;
   color: inherit;
+}
+.submit-group {
+  text-align: center;
 }
 .form-group {
   position: relative;
@@ -4354,23 +4366,8 @@ body.vjs-full-window {
   -webkit-animation: sharp 2s ease infinite;
   animation: sharp 2s ease infinite;
 }
-.login {
-  background: url(../images/login/imac.png) 0 0 no-repeat;
-  background-size: 940px 778px;
-  color: #ffffff;
-  margin-bottom: 77px;
-  padding: 38px 38px 267px;
-  position: relative;
-}
-.login-screen {
-  background-color: #1abc9c;
-  min-height: 473px;
-  padding: 123px 199px 33px 306px;
-}
 .login-icon {
-  left: 200px;
   position: absolute;
-  top: 160px;
   width: 96px;
 }
 .login-icon > img {
@@ -4396,6 +4393,8 @@ body.vjs-full-window {
   padding: 24px 23px 20px;
   position: relative;
   border-radius: 6px;
+  width: 225px;
+  margin-left: 125px;
 }
 .login-form:before {
   content: '';

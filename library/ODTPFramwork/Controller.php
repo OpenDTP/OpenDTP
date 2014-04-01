@@ -13,7 +13,7 @@ class ODTPFramwork_Controller extends Zend_Controller_Action {
 	}
 
 	protected function setFlatUI() {
-		$this->view->headLink()->appendStylesheet('/css/bootstrap.css')
+		$this->view->headLink()->appendStylesheet('/bootstrap/css/bootstrap.css')
 			->appendStylesheet('/css/flat-ui.css');
 		$this->view->headScript()->appendFile('/js/jquery-1.8.3.min.js');
 	}

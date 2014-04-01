@@ -3,8 +3,14 @@
 class IndexController extends ODTPFramwork_Controller {
 
     public function indexAction() {
-        $this->view->alive = 1;
-        $this->view->version = API_VERSION;
+    }
+
+    public function loginAction() {
+    	$login = $this->getRequest()->getParam('login');
+    	$password = $this->getRequest()->getParam('password');
+
+    	$this->view->login = $login;
+    	$this->view->password = $password;
     }
 
 }
