@@ -32,7 +32,7 @@ You can use Mac OS, Linux, Windows or whatever OS, everything is here :
 
 http://www.vagrantup.com/downloads.html
 
-Just download your version and follow installation procedure.
+Just download your version (v1.4 not v1.5) and follow installation procedure.
 
 ### Virtual Box
 
