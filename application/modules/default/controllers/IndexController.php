@@ -1,11 +1,14 @@
 <?php
 
-class IndexController extends ODTPFramwork_Controller {
+class IndexController extends ODTPFramwork_Controller
+{
 
-    public function indexAction() {
+    public function indexAction()
+    {
     }
 
-    public function loginAction() {
+    public function loginAction()
+    {
     	$login = $this->getRequest()->getParam('login');
     	$password = $this->getRequest()->getParam('password');
 
@@ -14,4 +17,3 @@ class IndexController extends ODTPFramwork_Controller {
     }
 
 }
-
