@@ -60,11 +60,27 @@ if !data['vm']['provider']['virtualbox'].empty?
 end
 
 Vagrant.configure("2") do |config|
+  # Enable Hostmanager hook for updating on up and destroy accordingly
+  config.hostmanager.enabled = true
+
+  # Enable host /etc/host update
+  config.hostmanager.manage_host = true
+
+  # Allow use of private ip
+  config.hostmanager.ignore_private_ip = false
+
+  # boxes that are up or have a private ip configured will be added to the hosts file
+  config.hostmanager.include_offline = true
+
   config.vm.box = "#{data['vm']['box']}"
   config.vm.box_url = "#{data['vm']['box_url']}"
 
   if data['vm']['hostname'].to_s != ''
     config.vm.hostname = "#{data['vm']['hostname']}"
+  end
+
+  if data['vm']['aliases'].to_s != ''
+    config.hostmanager.aliases = data['vm']['aliases'].join(' ')
   end
 
   if data['vm']['network']['private_network'].to_s != ''
