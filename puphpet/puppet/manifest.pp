@@ -1498,3 +1498,49 @@ if hash_key_equals($rabbitmq_values, 'install', 1) {
   }
 }
 
+# Begin phpMemcachedAdmin installation
+
+if $phpmemcachedadmin_values == undef {
+  $phpmemcachedadmin_values = hiera('phpmemcachedadmin', false)
+}
+
+if hash_key_equals($phpmemcachedadmin_values, 'install', 1) {
+  exec {'install-phpMemcachedAdmin' :
+    cwd => '/tmp',
+    command => "mkdir phpmemcachedadmin \
+                && wget http://phpmemcacheadmin.googlecode.com/files/phpMemcachedAdmin-1.2.2-r262.tar.gz \
+                && tar -xvzf phpMemcachedAdmin-1.2.2-r262.tar.gz -C phpmemcachedadmin \
+                && mv phpmemcachedadmin ${webroot_location}/ \
+                && rm phpMemcachedAdmin-1.2.2-r262.tar.gz",
+    onlyif  => "test ! -f ${webroot_location}/phpmemcachedadmin/index.php"
+  }
+}
+
+# Begin webgrind installation
+
+if $webgrind_values == undef {
+  $webgrind_values = hiera('webgrind', false)
+}
+
+if hash_key_equals($webgrind_values, 'install', 1) {
+  vcsrepo { "${webroot_location}/webgrind":
+      ensure => latest,
+      provider => git,
+      source => 'https://github.com/jokkedk/webgrind.git',
+      revision => 'master',
+  }
+
+  if ! defined(Package['graphviz']) {
+    package { 'graphviz' :
+      ensure => 'installed'
+    }
+  }
+
+  if defined(Package['graphviz']) {
+    file { '/usr/local/bin/dot':
+       ensure => 'link',
+       target => '/usr/bin/dot',
+    }
+  }
+}
+

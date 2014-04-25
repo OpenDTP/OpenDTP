@@ -250,4 +250,8 @@ rabbitmq:
     install: 0
     settings:
         port: '5672'
+phpmemcachedadmin:
+    install: '1'
+webgrind:
+    install: '1'
 
