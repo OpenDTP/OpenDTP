@@ -1,5 +1,55 @@
 require 'yaml'
 
+require 'yaml'
+
+def plugin(name, version = nil, opts = {})
+  @vagrant_home ||= opts[:home_path] || ENV['VAGRANT_HOME'] || "#{ENV['HOME']}/.vagrant.d"
+
+  if !File.exist?("#@vagrant_home/plugins.json") || !File.file?("#@vagrant_home/plugins.json")
+    if File.file?("@vagrant_home/plugins.json")
+      print 'Invalid file ' + @vagrant_home + '/plugins.json'
+      return
+    end
+    File.open("#@vagrant_home/plugins.json", 'w') {|f| f.write('{"version":"1","installed":{}}') }
+    print 'Successfully created ' + @vagrant_home + '/plugins.json' + $/
+  end
+
+  plugins = JSON.parse(File.read("#@vagrant_home/plugins.json"))
+
+  if !plugins['installed'].include?(name) || (version && !version_matches(name, version))
+
+    # Inform user of plugin installation
+    print 'Installing plugin ' + name
+    if version
+      print '(' + version + ')'
+    end
+    print '. This can take a few minutes ...' + $/
+
+    cmd = "vagrant plugin install"
+    cmd << " --entry-point #{opts[:entry_point]}" if opts[:entry_point]
+    cmd << " --plugin-source #{opts[:source]}" if opts[:source]
+    cmd << " --plugin-version #{version}" if version
+    cmd << " #{name}"
+
+    result = %x(#{cmd})
+    print result
+
+    # Refreshing Gems and loading newly installed plugin
+    print 'Loading plugin ' + name + $/
+    Gem::refresh()
+    require name
+  end
+end
+
+def version_matches(name, version)
+  gems = Dir["#@vagrant_home/gems/specifications/*"].map { |spec| spec.split('/').last.sub(/\.gemspec$/,'').split(/-(?=[\d]+\.?){1,}/) }
+  gem_hash = {}
+  gems.each { |gem, v| gem_hash[gem] = v }
+  gem_hash[name] == version
+end
+
+plugin 'vagrant-hostmanager'
+
 dir = File.dirname(File.expand_path(__FILE__))
 
 configValues = YAML.load_file("#{dir}/puphpet/config.yaml")
