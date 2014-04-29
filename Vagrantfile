@@ -1,7 +1,5 @@
 require 'yaml'
 
-require 'yaml'
-
 def plugin(name, version = nil, opts = {})
   @vagrant_home ||= opts[:home_path] || ENV['VAGRANT_HOME'] || "#{ENV['HOME']}/.vagrant.d"
 
@@ -48,8 +46,6 @@ def version_matches(name, version)
   gem_hash[name] == version
 end
 
-plugin 'vagrant-hostmanager'
-
 dir = File.dirname(File.expand_path(__FILE__))
 
 configValues = YAML.load_file("#{dir}/puphpet/config.yaml")
@@ -60,27 +56,12 @@ if !data['vm']['provider']['virtualbox'].empty?
 end
 
 Vagrant.configure("2") do |config|
-  # Enable Hostmanager hook for updating on up and destroy accordingly
-  config.hostmanager.enabled = true
-
-  # Enable host /etc/host update
-  config.hostmanager.manage_host = true
-
-  # Allow use of private ip
-  config.hostmanager.ignore_private_ip = false
-
-  # boxes that are up or have a private ip configured will be added to the hosts file
-  config.hostmanager.include_offline = true
 
   config.vm.box = "#{data['vm']['box']}"
   config.vm.box_url = "#{data['vm']['box_url']}"
 
   if data['vm']['hostname'].to_s != ''
     config.vm.hostname = "#{data['vm']['hostname']}"
-  end
-
-  if data['vm']['aliases'].to_s != ''
-    config.hostmanager.aliases = data['vm']['aliases'].join(' ')
   end
 
   if data['vm']['network']['private_network'].to_s != ''
