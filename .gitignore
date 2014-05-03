@@ -6,3 +6,4 @@ extras/documentation
 .vagrant/
 vendor/
 composer.lock
+build/
