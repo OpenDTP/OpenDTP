@@ -69,17 +69,22 @@ class ODTPFramwork_Renderer_Loader implements ODTPFramwork_Renderer_Loader_Inter
      */
     public function loadConfigFolder($path = null)
     {
-        if (is_null($path) && '' === $this->getDefaultConfigPath())
+        if (is_null($path) && '' === $this->getDefaultConfigPath()) {
             throw new ODTPFramwork_Renderer_Exception('use setDefaultConfigPath() first.');
-        if (!is_null($path) && !is_string($path))
+        }
+        if (!is_null($path) && !is_string($path)) {
             throw new ODTPFramwork_Renderer_Exception('$path must be an string');
-        if (is_null($path))
+        }
+        if (is_null($path)) {
             $path = $this->getDefaultConfigPath();
-        if (!is_dir($path))
+        }
+        if (!is_dir($path)) {
             throw new ODTPFramwork_Renderer_Exception("$path must be a folder");
+        }
         $dir = @opendir($path);
-        if (false === $dir)
+        if (false === $dir) {
             throw new ODTPFramwork_Renderer_Exception("$path : Couldn't open folder");
+        }
         $file = '';
         while (false !== ($file = readdir($dir))) {
             if (is_file($path . DIRECTORY_SEPARATOR . $file)) {

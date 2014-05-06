@@ -2,7 +2,6 @@
 
 class Auth_Model_Users
 {
-
     const STATUS_ACTIVE = 1;
     const STATUS_INACTIVE = 0;
 
@@ -58,8 +57,9 @@ class Auth_Model_Users
         }
 
         $user = Zend_Auth::getInstance()->getIdentity();
-        if ($user && isset($user->$name))
+        if ($user && isset($user->$name)) {
             return $user->$name;
+        }
 
         return false;
     }
@@ -73,5 +73,4 @@ class Auth_Model_Users
     {
         return Zend_Auth::getInstance()->hasIdentity();
     }
-
 }

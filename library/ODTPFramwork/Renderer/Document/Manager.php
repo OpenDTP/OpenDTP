@@ -20,7 +20,7 @@ class ODTPFramwork_Renderer_Document_Manager extends ODTPFramwork_Renderer_Docum
         }
     }
 
-    protected function find_renderer(ODTPFramwork_Renderer_Document_Interface $document)
+    protected function findRenderer(ODTPFramwork_Renderer_Document_Interface $document)
     {
         $i = 0;
 
@@ -44,7 +44,7 @@ class ODTPFramwork_Renderer_Document_Manager extends ODTPFramwork_Renderer_Docum
             if (is_null($renderer)) {
                 throw new ODTPFramwork_Renderer_Document_Manager_Exception('Unknown extension ' . $document->getExtension() . ' : can\'t define renderer');
             }
-        } else if (!$this->renderer_defined($renderer)) {
+        } elseif (!$this->renderer_defined($renderer)) {
             throw new ODTPFramwork_Renderer_Document_Manager_Exception("Unknown renderer $renderer");
         }
         $document->setRenderer($renderer);

@@ -46,7 +46,7 @@ class ODTPFramwork_Renderer_Query_Parser
                 throw new ODTPFramwork_Renderer_Query_Exception("Parse error in query : $query --- Near : $parameter");
 
                 // We found a keyword
-            } else if (in_array($lower_parameter, $this->_keywords)) {
+            } elseif (in_array($lower_parameter, $this->_keywords)) {
                 if (!isset($parsed_query[$current_keyword])) {
                     $parsed_query[$current_keyword] = array();
                 }
