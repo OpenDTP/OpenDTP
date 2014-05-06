@@ -5,11 +5,11 @@
  */
 interface ODTPFramwork_Renderer_Response_Interface
 {
-		/**
-		 * Return the HTTP response code
-		 *
-		 * @return int The HTTP response code
-		 */
+    /**
+     * Return the HTTP response code
+     *
+     * @return int The HTTP response code
+     */
     public function getCode();
 
     /**

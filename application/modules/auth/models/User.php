@@ -2,14 +2,12 @@
 
 class Auth_Model_Users
 {
-
-    const STATUS_ACTIVE    = 1;
-    const STATUS_INACTIVE  = 0;
+    const STATUS_ACTIVE = 1;
+    const STATUS_INACTIVE = 0;
 
     public static function login($username, $password)
     {
-        if(!strlen($username) || !strlen($password))
-        {
+        if (!strlen($username) || !strlen($password)) {
             return false;
         }
 
@@ -17,10 +15,10 @@ class Auth_Model_Users
 
         $authAdapter = new Zend_Auth_Adapter_DbTable(Zend_Registry::get('db'));
         $authAdapter->setTableName('users')
-        ->setIdentityColumn('email')
-        ->setCredentialColumn('password')
-        ->setIdentity($username)
-        ->setCredential($password);
+            ->setIdentityColumn('email')
+            ->setCredentialColumn('password')
+            ->setIdentity($username)
+            ->setCredential($password);
 
         $authAdapter->setCredentialTreatment(
             "SHA1(CONCAT('$staticSalt',?,salt))"
@@ -29,8 +27,7 @@ class Auth_Model_Users
 
         $auth = Zend_Auth::getInstance();
         $result = $auth->authenticate($authAdapter);
-        if (!$result->isValid())
-        {
+        if (!$result->isValid()) {
             return false;
         }
 
@@ -47,8 +44,7 @@ class Auth_Model_Users
 
     public function logout()
     {
-        if(Zend_Auth::getInstance()->hasIdentity())
-        {
+        if (Zend_Auth::getInstance()->hasIdentity()) {
             Zend_Auth::getInstance()->clearIdentity();
             Zend_Session::destroy(true, true);
         }
@@ -56,14 +52,14 @@ class Auth_Model_Users
 
     public static function getLoggedInUserField($name)
     {
-        if(!$name)
-        {
+        if (!$name) {
             return false;
         }
 
         $user = Zend_Auth::getInstance()->getIdentity();
-        if($user && isset($user->$name))
+        if ($user && isset($user->$name)) {
             return $user->$name;
+        }
 
         return false;
     }
@@ -77,5 +73,4 @@ class Auth_Model_Users
     {
         return Zend_Auth::getInstance()->hasIdentity();
     }
-
 }
