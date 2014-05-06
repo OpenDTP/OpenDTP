@@ -15,6 +15,6 @@ class ODTPFramework_Controller_Plugin_Auth extends Zend_Controller_Plugin_Abstra
         $request->setModuleName('default')
             ->setControllerName('login')
             ->setActionName('login')
-            ->setDispatched(FALSE);
+            ->setDispatched(false);
     }
 }

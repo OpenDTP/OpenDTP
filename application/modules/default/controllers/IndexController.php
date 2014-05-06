@@ -2,7 +2,6 @@
 
 class IndexController extends ODTPFramwork_Controller
 {
-
     public function indexAction()
     {
     }
@@ -15,5 +14,4 @@ class IndexController extends ODTPFramwork_Controller
         $this->view->login = $login;
         $this->view->password = $password;
     }
-
 }

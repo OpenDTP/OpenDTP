@@ -48,5 +48,4 @@ class ODTPFramwork_Renderer_Document extends ODTPFramwork_Renderer_Document_Abst
         }
         $this->_renderer = $renderer;
     }
-
 }

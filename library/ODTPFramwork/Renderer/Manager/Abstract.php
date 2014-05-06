@@ -101,9 +101,8 @@ class ODTPFramwork_Renderer_Manager_Abstract implements ODTPFramwork_Renderer_Ma
             throw new ODTPFramwork_Renderer_Manager_Exception('$renderer must be null or a string');
         }
         if (is_null($renderer)) {
-
             return $this->_plugins;
-        } else if (!isset($this->_plugins[$renderer])) {
+        } elseif (!isset($this->_plugins[$renderer])) {
             throw new ODTPFramwork_Renderer_Manager_Exception("No $renderer renderers");
         }
 
