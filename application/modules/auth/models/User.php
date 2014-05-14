@@ -7,7 +7,8 @@ class Auth_Model_Users
 
     public static function login($username, $password)
     {
-        if (!strlen($username) || !strlen($password)) {
+        if (!strlen($username) || !strlen($password))
+        {
             return false;
         }
 
@@ -44,7 +45,8 @@ class Auth_Model_Users
 
     public function logout()
     {
-        if (Zend_Auth::getInstance()->hasIdentity()) {
+        if (Zend_Auth::getInstance()->hasIdentity())
+        {
             Zend_Auth::getInstance()->clearIdentity();
             Zend_Session::destroy(true, true);
         }
@@ -52,12 +54,14 @@ class Auth_Model_Users
 
     public static function getLoggedInUserField($name)
     {
-        if (!$name) {
+        if (!$name)
+        {
             return false;
         }
 
         $user = Zend_Auth::getInstance()->getIdentity();
-        if ($user && isset($user->$name)) {
+        if ($user && isset($user->$name))
+        {
             return $user->$name;
         }
 
