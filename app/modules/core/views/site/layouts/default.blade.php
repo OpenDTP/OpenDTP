@@ -54,7 +54,6 @@
 							<ul class="nav navbar-nav">
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 								<li {{ (Request::is('editor/*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor/dashboard') }}}">Editor</a></li>
-								<li {{ (Request::is('contact-us') ? ' class="active"' : '') }}><a href="{{{ URL::to('contact-us') }}}">Contact</a></li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
 								@if (Auth::check())

@@ -1,9 +1,9 @@
 {
-    "name": "OpenDTP/OpenDTPAPI",
+    "name": "OpenDTP/OpenDTPFront",
     "authors": [
         {
-            "name": "Michael FORASTE",
-            "email": "forast_m@etna-alternance.net"
+            "name": "Gaetan Gueraud",
+            "email": "guerau_g@etna-alternance.net"
         }
     ],
     "license": "MIT",
@@ -14,10 +14,11 @@
         "laravel/framework": "4.1.*",
       	"zizaco/confide": "~3.2",
       	"zizaco/entrust": "~1.2",
-      	"laravelbook/ardent": "dev-master”,
+      	"laravelbook/ardent": "dev-master",
         "leafo/lessphp": "0.4.*",
         "neeckeloo/closure-compiler-php": "dev-master",
-        "creolab/laravel-modules": "dev-master"
+        "creolab/laravel-modules": "dev-master",
+        "nategood/httpful": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*",

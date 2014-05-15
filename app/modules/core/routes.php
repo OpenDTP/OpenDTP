@@ -13,7 +13,7 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('core::site.layouts.home');
 });
 
 Route::get('editor/{path?}', function($path = 'dashboard')
@@ -21,3 +21,11 @@ Route::get('editor/{path?}', function($path = 'dashboard')
 
     return View::make('core::site.editor.' . $path);
 });
+
+
+
+Route::pattern('id', '[0-9]+');
+Route::get('{model}/{id}/show', 'ApiController@getShow');
+Route::get('{model}/{id}/edit', 'ApiController@getEdit');
+Route::post('{model}/{id}/edit', 'ApiController@postEdit');
+Route::put('{model}/{id}/edit', 'ApiController@putEdit');
