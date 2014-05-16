@@ -1,6 +1,6 @@
 @extends('site.layouts.default')
 @section('title')
-{{{ Lang::get('user/user.user_title') }}} ::
+{{{ Lang::get('user/user.user_show') }}} ::
 @parent
 @stop
 {{-- Content --}}

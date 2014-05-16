@@ -8,7 +8,7 @@ class ApiController extends Controller
 
   public function getShow($model, $id)
   {
-    $response = Httpful::get($this->api_url . $model . '/' . $id)->authenticateWith('admin', 'admin')->send();
+    Api::get($query);
     return View::make('core::site.' . $model . '.show')->with('response', $response->body->data);
   }
 

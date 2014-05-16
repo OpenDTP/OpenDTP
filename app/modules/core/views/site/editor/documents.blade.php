@@ -1,6 +1,6 @@
 @extends('site.layouts.default')
 @section('title')
-{{{ Lang::get('editor/editor.editor_title') }}} ::
+{{{ Lang::get('editor/editor.editor_title_docs') }}} ::
 @parent
 @stop
 {{-- Content --}}
