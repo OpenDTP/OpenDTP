@@ -1,12 +1,10 @@
 <?php
 
-namespace Api;
+namespace App\Modules\Core\Models;
 
-use Eloquent;
-
-class Api extends Eloquent
+class Api extends \Eloquent
 {
-	protected $api_url = "http://192.168.57.101/api/v1/";
+	protected static $api_url = "http://192.168.57.101/api/v1/";
 	/**
 	 * Find page
 	 * @param  Query  $query
@@ -16,7 +14,7 @@ class Api extends Eloquent
 	{
 		try
 		{
-			return Httpful::get($this->api_url . $query)->authenticateWith('admin', 'admin')->send();
+			return Httpful::get(self::$api_url . $query)->authenticateWith('admin', 'admin')->send();
 		}
 		catch (Exception $e)
 		{

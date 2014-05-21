@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Modules\Core\Facades;
+
 use Illuminate\Support\Facades\Facade;
 
 class ApiFacade extends Facade

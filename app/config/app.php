@@ -114,7 +114,7 @@ return array(
         'Illuminate\View\ViewServiceProvider',
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Creolab\LaravelModules\ServiceProvider',
-        'Core\Serviceproviders\ApiServiceProvider',
+        'App\Modules\Core\Serviceproviders\ApiServiceProvider',
 
     ),
     /*

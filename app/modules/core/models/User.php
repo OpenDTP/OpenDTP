@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Modules\Core\Models;
+
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableInterface;
 

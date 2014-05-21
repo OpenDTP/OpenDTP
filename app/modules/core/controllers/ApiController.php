@@ -1,6 +1,11 @@
 <?php
 
+namespace App\Modules\Core\Controllers;
 
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Httpful\Httpful;
+use App\Modules\Core\Models\Api;
 
 class ApiController extends Controller
 {
