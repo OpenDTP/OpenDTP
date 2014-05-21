@@ -18,10 +18,10 @@
         "leafo/lessphp": "0.4.*",
         "neeckeloo/closure-compiler-php": "dev-master",
         "creolab/laravel-modules": "0.5.*",
-        "nategood/httpful": "*",
-        "pdepend/pdepend": "1.1.*"
+        "nategood/httpful": "*"
     },
     "require-dev": {
+        "pdepend/pdepend": "1.1.*",
         "phpunit/phpunit": "3.7.*",
         "phpunit/dbunit": "1.3.*",
         "squizlabs/php_codesniffer": "1.*",
