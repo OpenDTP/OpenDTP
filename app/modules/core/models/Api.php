@@ -1,6 +1,10 @@
-<?php namespace App\Modules\Content\Models;
+<?php
 
-class Entry extends \Eloquent
+namespace Api;
+
+use Eloquent;
+
+class Api extends Eloquent
 {
 	protected $api_url = "http://192.168.57.101/api/v1/";
 	/**

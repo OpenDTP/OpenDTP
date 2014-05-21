@@ -1,4 +1,4 @@
-<?php namespace App\Modules\Core\Facades;
+<?php
 
 use Illuminate\Support\Facades\Facade;
 
@@ -9,6 +9,6 @@ class ApiFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return new \App\Modules\Core\Models\Api; }
+    protected static function getFacadeAccessor() { return 'Api'; }
 
 }
