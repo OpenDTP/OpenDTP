@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Modules\Core\Models;
+use Httpful\Httpful;
 
 class Api extends \Eloquent
 {
@@ -14,7 +15,7 @@ class Api extends \Eloquent
 	{
 		try
 		{
-			return Httpful::get(self::$api_url . $query)->authenticateWith('admin', 'admin')->send();
+			return \Httpful\Request::get(self::$api_url . $query)->authenticateWith('admin', 'admin')->send();
 		}
 		catch (Exception $e)
 		{
