@@ -1,0 +1,51 @@
+#!/usr/bin/env php
+[00;36mBuildfile: /data/build.xml[0m
+[00;32m
+OpenDTPAPI > build:
+[0m
+[00;36m    [chmod] Changed file mode on '/data/app/storage' to 775[0m
+[00;36m     [echo] Build End[0m
+[00;32m
+OpenDTPAPI > build-dev:
+[0m
+[00;36m[phingcall] Calling Buildfile '/data/build.xml' with target 'quality-analyse'[0m
+[00;32m
+OpenDTPAPI > phpcs:
+[0m
+[00;36m     [xslt] Copying 1 file to /data/build/report[0m
+[01;35m[filter:XsltFilter] XML file is empty![0m
+[00;32m
+OpenDTPAPI > phpmd:
+[0m
+[00;36m     [xslt] Copying 1 file to /data/build/report[0m
+[01;35m[filter:XsltFilter] XML file is empty![0m
+[00;32m
+OpenDTPAPI > phpcpd:
+[0m
+You need to set up the project dependencies using the following commands:
+wget http://getcomposer.org/composer.phar
+php composer.phar install
+[00;32m
+OpenDTPAPI > phpunit:
+[0m
+PHPUnit 3.7.37 by Sebastian Bergmann.
+
+Configuration read from /data/phpunit.xml
+
+.
+
+Time: 3.89 seconds, Memory: 18.25Mb
+
+[30;42m[2KOK (1 test, 1 assertion)
+[0m[2K
+Generating code coverage report in Clover XML format ... done
+[00;32m
+OpenDTPAPI > quality-analyse:
+[0m
+[00;36m     [echo] Quality Analyse End[0m
+[00;36m     [echo] Dev Build End[0m
+[00;32m
+BUILD FINISHED
+
+Total time: 17.9794 seconds
+[0m

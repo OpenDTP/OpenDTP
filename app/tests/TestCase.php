@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Tests;
+
 class TestCase extends Illuminate\Foundation\Testing\TestCase
 {
     /**
@@ -9,7 +11,7 @@ class TestCase extends Illuminate\Foundation\Testing\TestCase
      */
     public function createApplication()
     {
-        $unitTesting = true;
+        // $unitTesting = true;
 
         $testEnvironment = 'testing';
 

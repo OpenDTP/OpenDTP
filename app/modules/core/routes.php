@@ -12,14 +12,12 @@
 */
 
 
-Route::get('/', function()
-{
-	return View::make('core::site.layouts.home');
+Route::get('/', function () {
+    return View::make('core::site.layouts.home');
 });
 
-Route::get('editor/{path?}', function($path = 'dashboard')
-{
-
+Route::get('editor/{path?}', function ($path = 'dashboard') {
+    
     return View::make('core::site.editor.' . $path);
 });
 

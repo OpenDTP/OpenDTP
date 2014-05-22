@@ -11,6 +11,8 @@ class ApiFacade extends Facade
      *
      * @return string
      */
-    protected static function getFacadeAccessor() { return 'Api'; }
-
+    protected static function getFacadeAccessor()
+    {
+        return 'Api';
+    }
 }
