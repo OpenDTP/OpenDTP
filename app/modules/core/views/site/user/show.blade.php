@@ -20,11 +20,11 @@
     </thead>
     <tbody>
     <tr>
-        <td>{{{$response->id}}}</td>
-        <td>{{{$response->login}}}</td>
-        <td>{{{$response->email}}}</td>
-				<td>{{{$response->created_at}}}</td>
-				<td>{{{$response->valid}}}</td>
+        <td>{{{$user->id}}}</td>
+        <td>{{{$user->login}}}</td>
+        <td>{{{$user->email}}}</td>
+				<td>{{{$user->created_at}}}</td>
+				<td>{{{$user->valid}}}</td>
     </tr>
     </tbody>
 </table>
