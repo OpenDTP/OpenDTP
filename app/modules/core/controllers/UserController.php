@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function show($id)
     {
-        $user = User::make($id);
+        $user = UserFacade::make($id);
 
         return View::make('core::site.user.show')->with('user', $user);
     }

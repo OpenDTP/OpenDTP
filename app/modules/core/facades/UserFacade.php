@@ -3,6 +3,7 @@
 namespace App\Modules\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
+use App\Modules\Core\Models\User;
 
 class UserFacade extends Facade
 {
@@ -14,7 +15,7 @@ class UserFacade extends Facade
 
     protected static function make($id)
     {
-        $user = App::make('user');
+        $user = new User;
         $reponse = \Httpful\Reauest::get(Config::get(api_url) . '/' . $user->version . '/' . $user->service . '/' . $id)
         ->authenticateWith('admin', 'admin')->send();
         if ($response->code != 200) {
