@@ -2,7 +2,7 @@
 vm:
     box: opendtp-debian64
     box_url: 'http://thor.opendtp.net/opendtp-debian64.box'
-    hostname: api.opendtp.dev
+    hostname: opendtp.dev
     network:
         private_network: 192.168.57.100
         forwarded_port: {}
@@ -77,7 +77,7 @@ databases:
         user: opendtp
         password: opendtp
 mailcatcher:
-    name: api.opendtp.mailcatcher.dev
+    name: opendtp.mailcatcher.dev
     smtp_ip: 127.0.0.1
     smtp_port: 1025
     http_ip: 127.0.0.1
@@ -85,8 +85,8 @@ mailcatcher:
     path: /usr/local/bin
     log: /var/log/mailcatcher/mailcatcher.log
 webgrind:
-    name: api.opendtp.webgrind.dev
+    name: opendtp.webgrind.dev
 phpmemcachedadmin:
-    name: api.opendtp.phpmemcachedadmin.dev
+    name: opendtp.phpmemcachedadmin.dev
 phpmyadmin:
-    name: api.opendtp.phpmyadmin.dev
+    name: opendtp.phpmyadmin.dev
