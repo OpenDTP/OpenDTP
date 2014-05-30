@@ -21,7 +21,7 @@ Route::get('editor/{path?}', function ($path = 'dashboard') {
     return View::make('core::site.editor.' . $path);
 });
 
-
+Route::resource('user', 'UserController');
 
 Route::pattern('id', '[0-9]+');
 Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');

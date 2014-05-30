@@ -115,6 +115,7 @@ return array(
         'Illuminate\Workbench\WorkbenchServiceProvider',
         'Creolab\LaravelModules\ServiceProvider',
         'App\Modules\Core\Serviceproviders\ApiServiceProvider',
+        'OpenDTP\Storage\StorageServiceProvider',
 
     ),
     /*

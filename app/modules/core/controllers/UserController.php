@@ -2,17 +2,50 @@
 
 namespace App\Modules\Core\Controllers;
 
-use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\View;
-use App\Modules\Core\Models\User;
-use App\Modules\Core\Facades\UserFacade;
+use OpenDTP\Entity\User\UserEntity;
+use OpenDTP\Storage\User\UserRepository as User;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
+    public function __construct(UserEntity $user)
+    {
+        $this->user = $user;
+    }
+
+    public function index()
+    {
+        return $this->user->all();
+    }
+
+    /**
+     * Show
+     *
+     * @param $id
+     * @return Response
+     */
     public function show($id)
     {
-        $user = UserFacade::make($id);
+        $user = $this->user->find($id);
 
-        return View::make('core::site.user.show')->with('user', $user);
+        if ($user) {
+            return View::make('user.show', compact('user'));
+        }
+        App::abort(404);
+    }
+
+  /**
+   * Store
+   *
+   * @return Response
+   */
+    public function store()
+    {
+        $user = $this->user->create(Input::all());
+
+        if ($user) {
+            return Redirect::route('user.show', $id)->with('message', 'The user has been created!');
+        }
+
+        return Redirect::route('user.create', $id)->withInput()->withErrors($this->user->errors());
     }
 }
