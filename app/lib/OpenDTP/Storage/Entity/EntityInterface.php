@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenDTP\Entity;
+namespace Opendtp\Entity;
 
 interface EntityInterface
 {

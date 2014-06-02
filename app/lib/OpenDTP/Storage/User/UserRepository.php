@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenDTP\Storage\User;
+namespace Opendtp\Storage\User;
 
 interface UserRepository
 {

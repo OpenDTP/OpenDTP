@@ -1,13 +1,14 @@
 <?php
 
-namespace OpenDTP\Storage\User;
+namespace Opendtp\Storage\User;
+
+use App\Modules\Core\Models\Api;
 
 class ApiUserRepository implements UserRepository
 {
-
     public function all()
     {
-        return Api::get('all');
+        return Api::get('all')->send();
     }
 
     public function find($id)

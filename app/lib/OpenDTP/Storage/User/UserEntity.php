@@ -1,28 +1,28 @@
 <?php
 
-namespace OpenDTP\Entity\User;
+namespace Opendtp\Entity\User;
 
-use OpenDTP\Entity\AbstractEntity;
-use OpenDTP\Entity\EntityInterface;
-use OpenDTP\Repository\User\UserRepository;
-use OpenDTP\Service\Validation\Laravel\User\UserCreateValidator;
-use OpenDTP\Service\Validation\Laravel\User\UserUpdateValidator;
+use Opendtp\Entity\AbstractEntity;
+use Opendtp\Entity\EntityInterface;
+use Opendtp\Storage\User\UserRepository;
+use Opendtp\Service\Validation\Laravel\User\UserCreateValidator;
+use Opendtp\Service\Validation\Laravel\User\UserUpdateValidator;
 
 class UserEntity extends AbstractEntity implements EntityInterface
 {
 
     /**
-     * @var OpenDTP\Repository\User\UserRepository
+     * @var Opendtp\Repository\User\UserRepository
      */
     protected $repository;
 
     /**
-     * @var OpenDTP\Service\Validation\Laravel\UserCreateValidator
+     * @var Opendtp\Service\Validation\Laravel\UserCreateValidator
      */
     protected $createValidator;
 
     /**
-     * @var OpenDTP\Service\Validation\Laravel\UserUpdateValidator
+     * @var Opendtp\Service\Validation\Laravel\UserUpdateValidator
      */
     protected $updateValidator;
 
@@ -34,9 +34,9 @@ class UserEntity extends AbstractEntity implements EntityInterface
     /**
      * Construct
      *
-     * @param OpenDTP\Repository\User\UserRepository $repository
-     * @param OpenDTP\Service\Validation\Laravel\UserCreateValidator $createValidator
-     * @param OpenDTP\Service\Validation\Laravel\UserUpdateValidator $updateValidator
+     * @param Opendtp\Repository\User\UserRepository $repository
+     * @param Opendtp\Service\Validation\Laravel\UserCreateValidator $createValidator
+     * @param Opendtp\Service\Validation\Laravel\UserUpdateValidator $updateValidator
      */
      // , UserCreateValidator $createValidator, UserUpdateValidator $updateValidator
     public function __construct(UserRepository $repository)

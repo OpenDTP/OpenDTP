@@ -1,6 +1,6 @@
 <?php
 
-namespace OpenDTP\Storage;
+namespace Opendtp\Storage;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -9,8 +9,8 @@ class StorageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            'OpenDTP\Storage\User\UserRepository',
-            'OpenDTP\Storage\User\ApiUserRepository'
+            'Opendtp\Storage\User\UserRepository',
+            'Opendtp\Storage\User\ApiUserRepository'
         );
     }
 }

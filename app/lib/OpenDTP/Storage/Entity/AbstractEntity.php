@@ -1,6 +1,6 @@
 <?php
 
-namespace Cribbb\Entity;
+namespace Opendtp\Entity;
 
 abstract class AbstractEntity
 {

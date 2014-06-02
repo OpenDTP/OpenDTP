@@ -1,12 +1,12 @@
 <?php
 
-namespace OpenDTP\Entity;
+namespace Opendtp\Entity;
 
 use Illuminate\Validation\Factory;
 use Illuminate\Support\ServiceProvider;
-use OpenDTP\Entity\User\UserEntity;
-use OpenDTP\Service\Validation\Laravel\User\UserCreateValidator;
-use OpenDTP\Service\Validation\Laravel\User\UserUpdateValidator;
+use Opendtp\Entity\User\UserEntity;
+use Opendtp\Service\Validation\Laravel\User\UserCreateValidator;
+use Opendtp\Service\Validation\Laravel\User\UserUpdateValidator;
 
 class EntityServiceProvider extends ServiceProvider
 {
@@ -21,11 +21,11 @@ class EntityServiceProvider extends ServiceProvider
         /**
          * User Entity
          *
-         * @return OpenDTP\Entity\User\UserEntity
+         * @return Opendtp\Entity\User\UserEntity
          */
-        $this->app->bind('OpenDTP\Entity\User\UserEntity', function ($app) {
+        $this->app->bind('Opendtp\Entity\User\UserEntity', function ($app) {
             return new UserEntity(
-                $app->make('OpenDTP\Repository\User\UserRepository')
+                $app->make('Opendtp\Repository\User\UserRepository')
                 // new UserCreateValidator( $app['validator'] ),
                 // new UserUpdateValidator( $app['validator'] )
             );

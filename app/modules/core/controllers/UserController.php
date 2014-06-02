@@ -2,10 +2,12 @@
 
 namespace App\Modules\Core\Controllers;
 
-use OpenDTP\Entity\User\UserEntity;
-use OpenDTP\Storage\User\UserRepository as User;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+use Opendtp\Entity\User\UserEntity;
+use Opendtp\Storage\User\UserRepository as User;
 
-class UserController extends BaseController
+class UserController extends Controller
 {
     public function __construct(UserEntity $user)
     {
@@ -28,7 +30,7 @@ class UserController extends BaseController
         $user = $this->user->find($id);
 
         if ($user) {
-            return View::make('user.show', compact('user'));
+            return View::make('core::site.user.show', compact('user'));
         }
         App::abort(404);
     }
@@ -43,9 +45,9 @@ class UserController extends BaseController
         $user = $this->user->create(Input::all());
 
         if ($user) {
-            return Redirect::route('user.show', $id)->with('message', 'The user has been created!');
+            return Redirect::route('core::site.user.show', $id)->with('message', 'The user has been created!');
         }
 
-        return Redirect::route('user.create', $id)->withInput()->withErrors($this->user->errors());
+        return Redirect::route('core::site.user.create', $id)->withInput()->withErrors($this->user->errors());
     }
 }
