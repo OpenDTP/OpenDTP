@@ -8,12 +8,14 @@ class ApiUserRepository implements UserRepository
 {
     public function all()
     {
-        return Api::get('all')->send();
+        $reply = Api::get('all')->send();
+        return $reply->body->data;
     }
 
     public function find($id)
     {
-        return Api::get($id);
+        $reply = Api::get($id)->send();
+        return $reply->body->data;
     }
 
     public function create($input)
