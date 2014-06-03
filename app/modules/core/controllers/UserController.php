@@ -4,6 +4,7 @@ namespace App\Modules\Core\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Input;
 use Opendtp\Entity\User\UserEntity;
 use Opendtp\Storage\User\UserRepository as User;
 
@@ -31,6 +32,22 @@ class UserController extends Controller
 
         if ($user) {
             return View::make('core::site.user.show', compact('user'));
+        }
+        App::abort(404);
+    }
+
+  /**
+   * Get edit
+   *
+   * @param $id
+   * @return Response
+   */
+    public function getEdit($id)
+    {
+        $user = $this->user->find($id);
+
+        if ($user) {
+            return View::make('core::site.user.edit', compact('user'));
         }
         App::abort(404);
     }
