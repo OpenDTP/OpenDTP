@@ -18,7 +18,7 @@ class Api extends \Eloquent
         try {
              return \Httpful\Request::get(self::$api_url . $query)
              ->authenticateWith('admin', 'admin')
-             ->send();
+             ->send()->body->data;
         } catch (Exception $e) {
              throw new Exception('Error on the API GET of ['.$query.']: ', 0, $e);
         }

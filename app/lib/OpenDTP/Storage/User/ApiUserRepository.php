@@ -8,7 +8,7 @@ class ApiUserRepository implements UserRepository
 {
     public function all()
     {
-        return Api::get('all')->send();
+        return Api::get('all');
     }
 
     public function find($id)
@@ -18,6 +18,7 @@ class ApiUserRepository implements UserRepository
 
     public function create($input)
     {
-        return Api::post($input);
+        print_r($input);
+        return Api::post($input['id'], $input);
     }
 }

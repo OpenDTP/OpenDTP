@@ -33,10 +33,10 @@ abstract class AbstractEntity
      */
     public function create(array $data)
     {
-        if (!$this->createValidator->with($data)->passes()) {
-            $this->errors = $this->createValidator->errors();
-            return false;
-        }
+        // if (!$this->createValidator->with($data)->passes()) {
+        //     $this->errors = $this->createValidator->errors();
+        //     return false;
+        // }
 
         return $this->repository->create($data);
     }

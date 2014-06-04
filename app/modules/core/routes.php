@@ -21,10 +21,9 @@ Route::get('editor/{path?}', function ($path = 'dashboard') {
     return View::make('core::site.editor.' . $path);
 });
 
-Route::resource('user', 'UserController');
 
 Route::pattern('id', '[0-9]+');
 Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');
-Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\ApiController@getEdit');
-Route::post('{model}/{id}/edit', 'App\Modules\Core\Controllers\ApiController@postEdit');
-Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\ApiController@putEdit');
+Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');
+Route::post('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@store');
+// Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@putEdit');
