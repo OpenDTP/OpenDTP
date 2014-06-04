@@ -62,9 +62,9 @@ class UserController extends Controller
         $user = $this->user->create(Input::all());
 
         if ($user) {
-            return Redirect::route('core::site.user.show', $id)->with('message', 'The user has been created!');
+            return Redirect::route('core::site.user.show', $user->id)->with('message', 'The user has been created!');
         }
 
-        return Redirect::route('core::site.user.create', $id)->withInput()->withErrors($this->user->errors());
+        return Redirect::route('core::site.user.create', $user->id)->withInput()->withErrors($this->user->errors());
     }
 }
