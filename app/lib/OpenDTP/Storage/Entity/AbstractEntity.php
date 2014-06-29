@@ -49,10 +49,10 @@ abstract class AbstractEntity
      */
     public function update(array $data)
     {
-        if (!$this->updateValidator->with($data)->passes()) {
-            $this->errors = $this->updateValidator->errors();
-            return false;
-        }
+        //if (!$this->updateValidator->with($data)->passes()) {
+        //    $this->errors = $this->updateValidator->errors();
+        //    return false;
+        //}
         return $this->repository->update($data);
     }
 

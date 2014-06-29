@@ -32,12 +32,12 @@ class Api extends \Eloquent
     public static function put($query, $body, $token = "")
     {
         try {
-             return \Httpful\Request::put(self::$api_url . $query)
+             return \Httpful\Request::put(self::$api_url . '1')
              ->authenticateWith('admin', 'admin')
-             ->body($body)
+             ->body(json_encode($body))
              ->send();
         } catch (Exception $e) {
-             throw new Exception('Error on the API PUT of ['.$query.']: ', 0, $e);
+             throw new Exception('Error on the API PUT of ['.'1'.']: ', 0, $e);
         }
     }
 
@@ -51,10 +51,25 @@ class Api extends \Eloquent
         try {
              return \Httpful\Request::post(self::$api_url . $query)
              ->authenticateWith('admin', 'admin')
-             ->body($body)
+             ->body(json_encode($body))
              ->send();
         } catch (Exception $e) {
-             throw new Exception('Error on the API PUT of ['.$query.']: ', 0, $e);
+             throw new Exception('Error on the API POST of ['.$query.']: ', 0, $e);
+        }
+    }
+    /**
+    * Oauth model
+    * @param  Query  $query $body $token
+    * @return Query
+    */
+    public static function oauth($query, $body, $token = "")
+    {
+        try {
+             return \Httpful\Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
+             ->authenticateWith('admin', 'admin')
+             ->send();
+        } catch (Exception $e) {
+             throw new Exception('Error on the API POST of ['.$query.']: ', 0, $e);
         }
     }
 }

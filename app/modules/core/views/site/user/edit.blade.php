@@ -9,7 +9,7 @@
   <h1>user Edit</h1>
 </div>
 <div class="col-md-3">
-  {{ Form::open(array('url' => "/user/$user->id/edit")) }}
+  {{ Form::open(array('url' => "/user/$user->id/edit", 'method' => 'put')) }}
     {{ Form::label('login', 'Username') }}
     {{ Form::text('login', $user->login) }}
     {{ Form::label('email', 'User Email') }}

@@ -16,9 +16,13 @@ class ApiUserRepository implements UserRepository
         return Api::get($id);
     }
 
+    public function update($input)
+    {
+
+        return Api::put($input, $input);
+    }
     public function create($input)
     {
-        print_r($input);
-        return Api::post($input['id'], $input);
+        return Api::post($input);
     }
 }
