@@ -34,6 +34,7 @@ class LoginController extends Controller
             die('pas cool !');
         };
         Session::put('session.token', $response->access_token);
-        Redirect::to('/');
+        Session::put('session.username', $login);
+        return Redirect::to('/');
     }
 }

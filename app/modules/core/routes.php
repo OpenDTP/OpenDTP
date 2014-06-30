@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return View::make('core::site.layouts.home');
+    return View::make('core::site.editor.dashboard');
 });
 
 Route::get('editor/{path?}', function ($path = 'dashboard') {
@@ -24,8 +24,15 @@ Route::get('editor/{path?}', function ($path = 'dashboard') {
 
 Route::post('user/login', 'App\Modules\Core\Controllers\LoginController@login');
 Route::get('user/login', function () {
-
-    return View::make('core::site.user.login');
+    if (Session::has('session.token')) {
+        return View::make('core::site.editor.dashboard');
+    } else {
+        return View::make('core::site.user.login');
+    }
+});
+Route::get('user/logout', function () {
+    Session::flush();
+    return View::make('core::site.editor.dashboard');
 });
 Route::pattern('id', '[0-9]+');
 Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');

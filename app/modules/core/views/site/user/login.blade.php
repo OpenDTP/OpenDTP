@@ -11,10 +11,10 @@
 <div class="col-md-3">
   {{ Form::open(array('url' => "/user/login")) }}
     {{ Form::label('login', 'Username') }}
-    {{ Form::text('login') }}
+    {{ Form::text('login', null, array('class' => 'form-control')) }}
     {{ Form::label('password', 'Password') }}
-    {{ Form::text('password') }}
-    {{ Form::submit('Send') }}
+    {{ Form::password('password', array('class' => 'form-control')) }}
+    {{ Form::submit('Send', array('class' => 'btn btn-primary')) }}
   {{ Form::close() }}
 </div>
 @stop
