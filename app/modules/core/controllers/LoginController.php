@@ -35,6 +35,7 @@ class LoginController extends Controller
         };
         Session::put('session.token', $response->access_token);
         Session::put('session.username', $login);
+        Session::flash('success', 'Bienvenue ' . $login);
         return Redirect::to('/');
     }
 }
