@@ -3,18 +3,18 @@
 namespace App\Modules\Core\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Http\RedirectResponse\Redirector as Redirect;
-use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
-use Opendtp\Entity\User\UserEntity;
-use Opendtp\Storage\User\UserRepository as User;
 use App\Modules\Core\Models\Api;
-use Illuminate\Session\Store as Session;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
     public function login()
     {
+        if (Session::get('session.token')) {
+            Redirect::to('/');
+        }
         $login = Input::get('login');
         $password = Input::get('password');
 
@@ -29,9 +29,11 @@ class LoginController extends Controller
               'grant_type' => 'password'
           ]
         );
-        $token = json_decode($response, true)['access_token'];
-        //Session::put('session.token', $token);
-        echo '<pre>' . print_r(Session::get('user.token'), true) . '</pre>';
-        die;
+        $response = json_decode($response);
+        if (!isset($response->access_token)) {
+            die('pas cool !');
+        };
+        Session::put('session.token', $response->access_token);
+        Redirect::to('/');
     }
 }
