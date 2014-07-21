@@ -112,3 +112,16 @@
   box-sizing: border-box;
   margin-top: -1px;
 }
+
+.pannel {
+    background-color: #ddd;
+    padding: 10px;
+}
+
+.input-group {
+    margin: 10px;
+}
+
+.input-group-addon {
+    top: 0px !important;
+}

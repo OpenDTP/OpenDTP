@@ -28,10 +28,6 @@ Route::group(array('before' => 'oauth'), function () {
         return View::make('core::site.editor.' . $path);
     });
 
-    Route::get('user/logout', function () {
-        Session::flush();
-        return View::make('core::site.editor.dashboard');
-    });
     Route::pattern('id', '[0-9]+');
     Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');
     Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');
@@ -46,4 +42,9 @@ Route::get('user/login', function () {
     } else {
         return View::make('core::site.user.login');
     }
+});
+Route::get('user/logout', function () {
+    Session::flush();
+    Auth::logout();
+    return Redirect::to('/');
 });

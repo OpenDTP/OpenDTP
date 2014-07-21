@@ -27,7 +27,7 @@ class LoginController extends Controller
               'client_secret' => 'opendtp',
               'scope' => 'default',
               'grant_type' => 'password'
-          ]
+            ]
         );
         $response = json_decode($response);
         if (!isset($response->access_token)) {
