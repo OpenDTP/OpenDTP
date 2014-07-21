@@ -14,11 +14,14 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div>
-            <p>Welcome to OpenDTP, the collaborative publication plateform<br />Please login to proceed</p>
+            <p>
+                Welcome to the collaborative publication plateform
+                <br />
+                Give a boost to your publications projects
+            </p>
         </div>
         {{ Form::open(['url' => '/user/login', 'role' => 'form', 'class' => 'pannel']) }}
-        <form action="dashboard.html" method="POST" role="form" class="pannel">
-            <div class="form-group">
+            <div class="form-group pannel">
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-user"></span>
                     {{ Form::text('login', null, [
@@ -36,7 +39,7 @@
                 </div>
             </div>
         {{ Form::close() }}
-        <div><a href="">Need an account ?</a> - <a href="">Forgot your password ?</a></div>
+        <div style="text-align: center;"><a href="">Need an account ?</a> - <a href="">Forgot your password ?</a></div>
     </div>
     <div class="col-md-4"></div>
 </div>
