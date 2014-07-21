@@ -11,11 +11,6 @@
 |
 */
 
-Route::filter('oauth', function () {
-    if (!Session::get('user.token')) {
-        return Redirect::to('user/login');
-    }
-});
 
 Route::group(array('before' => 'oauth'), function () {
 
