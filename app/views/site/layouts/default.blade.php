@@ -49,19 +49,50 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
+											<a class="navbar-brand brand-opendtp" href="index.html">OpenDTP</a>
+
 						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav">
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 								<li {{ (Request::is('editor/*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor/dashboard') }}}">Editor</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="projects.html">Manage projects</a></li>
+										<li><a href="teams.html">Manage teams</a></li>
+										<li><a href="#">Plan</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assets<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="fonts.html">Fonts</a></li>
+										<li><a href="images.html">Images</a></li>
+										<li><a href="articles.html">Articles</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts<span class="caret"></span></a>
+									<ul class="dropdown-menu" role="menu">
+										<li><a href="#">Manage contacts</a></li>
+										<li><a href="#">Manage groups</a></li>
+									</ul>
+								</li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
+								<li class="notification">
+									<a href="#">2 <span class="glyphicon glyphicon-calendar"></span></a>
+								</li>
+								<li class="notification">
+									<a href="#">3 <span class="glyphicon glyphicon-info-sign"></span></a>
+								</li>
 								@if(Session::has('session.token'))
 								<li><a href="{{{ URL::to('user') }}}">Logged in as {{{Session::get('session.username')}}}</a></li>
 								<li><a href="{{{ URL::to('user/logout') }}}">Logout</a></li>
 								@else
 								<li {{ (Request::is('user/login') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/login') }}}">Login</a></li>
-								<li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{{ Lang::get('site.sign_up') }}}</a></li>
+								<li {{ (Request::is('user/register') ? ' class="active"' : '') }}><a href="{{{ URL::to('user/create') }}}">{{{ Lang::get('Register') }}}</a></li>
 								@endif
 							</ul>
 					  </div>
@@ -101,6 +132,7 @@
 	{{HTML::script('assets/js/ckeditor/adapters/jquery.js')}}
 	{{HTML::script('assets/js/MapEditor/jquery-mapeditor.min.js')}}
 	{{HTML::script('bootstrap/js/bootstrap.min.js')}}
+	{{HTML::script('assets/js/Chart.min.js')}}
 	<script type="text/javascript">
 		$(document).ready(function () {
 			var deconstruction = {

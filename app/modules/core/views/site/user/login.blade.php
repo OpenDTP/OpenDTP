@@ -6,13 +6,10 @@
 {{-- Content --}}
 @section('content')
 <div class="row login-header">
-    <div class="col-md-4"></div>
-    <div class="col-md-4 logo-full"></div>
-    <div class="col-md-4"></div>
+    <div class="col-md-4  col-md-offset-4 logo-full"></div>
 </div>
 <div class="row">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
+    <div class="col-md-4 col-md-offset-4">
         <div>
             <p>
                 Welcome to the collaborative publication plateform
@@ -39,8 +36,7 @@
                 </div>
             </div>
         {{ Form::close() }}
-        <div style="text-align: center;"><a href="">Need an account ?</a> - <a href="">Forgot your password ?</a></div>
+        <div style="text-align: center;"><a href="">Register</a> - <a href="">Forgot your password ?</a></div>
     </div>
-    <div class="col-md-4"></div>
 </div>
 @stop
