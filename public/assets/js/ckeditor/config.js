@@ -7,6 +7,8 @@ CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
+  config.extraPlugins = 'inlinesave,sharedspace';
+  config.removePlugins = 'floatingspace,resize';
   config.toolbar = [
 	{ name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
 	{ name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
@@ -21,6 +23,6 @@ CKEDITOR.editorConfig = function( config ) {
 	{ name: 'styles', items: [ 'Styles', 'Format', 'Font', 'FontSize' ] },
 	{ name: 'colors', items: [ 'TextColor', 'BGColor' ] },
 	{ name: 'tools', items: [ 'Maximize', 'ShowBlocks' ] },
-	{ name: 'others', items: [ '-' ] }
+	{ name: 'others', items: [ '-', 'Inlinesave' ] }
 ];
 };
