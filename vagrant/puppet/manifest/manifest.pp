@@ -18,6 +18,7 @@ $username = $ssh_values['username']
 # failing for invalid certificates
 include '::ntp'
 
+
 # Declaring exec bin paths
 Exec { path => [ '/bin/', '/sbin/', '/usr/bin/', '/usr/sbin/' ] }
 
@@ -354,4 +355,22 @@ package { 'phpmyadmin' :
 apache::vhost { $phpmyadmin_values['name']:
   docroot => '/usr/share/phpmyadmin',
   port    => '80'
+}
+
+####################################################
+###                NodeJS Setup                  ###
+####################################################
+
+class { 'nodejs':
+  version => 'stable',
+}
+
+package { 'gulp':
+  provider => npm,
+  require => Class['nodejs']
+}
+
+package { 'bower':
+  provider => npm,
+  require => Class['nodejs']
 }
