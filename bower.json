@@ -1,0 +1,20 @@
+{
+  "name": "OpenDTP",
+  "version": "0.0.1",
+  "homepage": "https://github.com/OpenDTP/OpenDTP",
+  "authors": [
+    "Michael FORASTE <michael.foraste@gmail.com>"
+  ],
+  "description": "OpenDTP: the collaborative publication plateform",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "flatui": "*"
+  }
+}

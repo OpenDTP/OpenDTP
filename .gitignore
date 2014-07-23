@@ -10,3 +10,6 @@ build/*.xml
 build/html/
 build/report/
 .idea/
+node_modules/
+bower_components/
+log.txt
