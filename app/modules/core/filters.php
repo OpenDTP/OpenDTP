@@ -35,3 +35,9 @@ Route::filter(
     function () {
     }
 );
+
+Route::filter('oauth', function () {
+    if (is_null(Session::get('session.token'))) {
+        return Redirect::to('user/login');
+    }
+});

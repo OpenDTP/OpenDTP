@@ -27,13 +27,15 @@ class LoginController extends Controller
               'client_secret' => 'opendtp',
               'scope' => 'default',
               'grant_type' => 'password'
-          ]
+            ]
         );
         $response = json_decode($response);
         if (!isset($response->access_token)) {
             die('pas cool !');
         };
         Session::put('session.token', $response->access_token);
-        Redirect::to('/');
+        Session::put('session.username', $login);
+        Session::flash('success', 'Welcome ' . $login);
+        return Redirect::to('/');
     }
 }
