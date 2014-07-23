@@ -1,0 +1,16 @@
+{
+  "name": "best-practices",
+  "description": "OpenDTP: the collaborative publication plateform",
+  "author": "Michael FORASTE <michael.foraste@gmail.com>",
+  "devDependencies": {
+    "del": "^0.1.1",
+    "gulp": "^3.8.6",
+    "gulp-concat": "^2.3.4",
+    "gulp-csso": "^0.2.9",
+    "gulp-imagemin": "^0.6.1",
+    "gulp-less": "^1.3.2",
+    "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.1.0",
+    "gulp-uglify": "^0.3.1"
+  }
+}
