@@ -19,7 +19,7 @@ var modules = {
     'app/modules': {
         'scripts' : [ '**/*.js' ],
         'stylesheets' : [ '**/*.less' ],
-        'images' :  [ '**/*.(jpg|jpeg|png|ico)' ]
+        'images' :  [ '**/images/*.*' ]
     }
 };
 
@@ -69,7 +69,7 @@ gulp.task('stylesheets', function() {
 gulp.task('images', function() {
     for (module in paths) {
         gulp.src(paths[module].images)
-            .pipe(imagemin({optimizationLevel: 5}))
+//            .pipe(imagemin({optimizationLevel: 5}))
             .pipe(gulp.dest('public/images/' + module));
     }
 });

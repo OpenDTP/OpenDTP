@@ -12,10 +12,7 @@
     <meta name="description" content="Official website of OpenDTP." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @section('css')
-    {{HTML::style('assets/css/style.css')}}
-    {{HTML::style('bootstrap/css/bootstrap.css')}}
-    {{HTML::style('assets/css/flat-ui.css')}}
-    {{HTML::style('assets/css/themes/default/style.min.css')}}
+    {{HTML::style('css/core/core.min.css')}}
     @show
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -33,8 +30,6 @@
 <body>
 @yield('content')
 @section('script')
-{{HTML::script('assets/js/jquery-1.11.0.min.js')}}
-{{HTML::script('bootstrap/js/bootstrap.min.js')}}
 @show
 @yield('scripts')
 </body>
