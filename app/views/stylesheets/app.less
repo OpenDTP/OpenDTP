@@ -5,5 +5,20 @@ body {
 }
 
 .brand-opendtp {
-  background-image: url('/images/core/logoopendtp.png');
+  background-image: url('/images/shared/logoopendtp.png');
+}
+
+.navbar-brand {
+  &.brand-opendtp {
+    padding-left: 50px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 50px;
+  }
+}
+
+#wrap {
+  >.container {
+    margin-top: 25px;
+  }
 }
