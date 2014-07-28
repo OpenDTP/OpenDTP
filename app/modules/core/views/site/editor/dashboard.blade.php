@@ -1,10 +1,6 @@
-@extends('site.layouts.default')
+@extends('layouts.default')
 @section('title')
 {{{ Lang::get('editor/editor.editor_title') }}} ::
-@parent
-@stop
-@section('css')
-    {{HTML::style('imageflow/imageflow.css')}}
 @parent
 @stop
 {{-- Content --}}
@@ -14,12 +10,6 @@
       <h3 class="panel-title">Publications en cours</h3>
     </div>
     <div class="panel-body">
-      <div id="imageflow-opendtp" class="imageflow">
-        {{HTML::image('/imageflow/img/2014_flyers_opendtp.jpg', "OpenDTP Flyer V1")}}
-        {{HTML::image('/imageflow/img/2014_flyers_opendtp.jpg', "OpenDTP Flyer V2")}}
-        {{HTML::image('/imageflow/img/2014_flyers_opendtp.jpg', "OpenDTP Flyer V3")}}
-        {{HTML::image('/imageflow/img/2014_flyers_opendtp.jpg', "OpenDTP Flyer V4")}}
-      </div>
     </div>
   </div>
 
