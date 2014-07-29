@@ -130,5 +130,5 @@
 @stop
 @section('script')
 @parent
-		{{HTML::script('imageflow/imageflow.js')}}
+		{{HTML::script('js/core/core.min.js')}}
 @stop

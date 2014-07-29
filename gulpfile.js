@@ -31,9 +31,9 @@ var modules = {
 
         // path definitions
         'paths' : {
-            'scripts' : [ 'views/**/*.js' ],
-            'stylesheets' : [ 'views/**/*.less' ],
-            'images' :  [ 'views/**/images/*.*' ]
+            'scripts' : [ 'views/scripts/**/*.js' ],
+            'stylesheets' : [ 'views/stylesheets/**/*.less' ],
+            'images' :  [ 'views/images/**/*.*' ]
         }
     },
     'app/modules': {
@@ -42,9 +42,9 @@ var modules = {
         // each compiled files will have his module name
         'modules' : true,
         'paths' : {
-            'scripts' : [ 'views/**/*.js' ],
-            'stylesheets' : [ 'views/**/*.less' ],
-            'images' :  [ 'views/**/images/*.*' ]
+            'scripts' : [ 'views/scripts/**/*.js' ],
+            'stylesheets' : [ 'views/stylesheets/**/*.less' ],
+            'images' :  [ 'views/images/**/*.*' ]
         }
     }
 };

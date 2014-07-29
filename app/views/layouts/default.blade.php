@@ -104,7 +104,8 @@
       </div>
     </div>
 	@section('script')
+        {{HTML::script('js/shared/shared.min.js')}}
 	@show
-  @yield('scripts')
+    @yield('scripts')
 	</body>
 </html>
