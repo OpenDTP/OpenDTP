@@ -1,7 +1,11 @@
-@extends('core::site.layouts.blank')
+@extends('layouts.blank')
 @section('title')
 {{{ Lang::get('user/user.user_login') }}} ::
 @parent
+@stop
+@section('css')
+@parent
+{{HTML::style('css/core/core.min.css')}}
 @stop
 {{-- Content --}}
 @section('content')

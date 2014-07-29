@@ -13,3 +13,5 @@ build/report/
 node_modules/
 bower_components/
 log.txt
+public/css/
+public/images/
