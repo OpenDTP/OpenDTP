@@ -5,10 +5,7 @@ var del = require('del');
 // Additionnal content
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-
-// Not working yet
-//var imagemin = require('gulp-imagemin');
-
+var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var csso = require('gulp-csso');
 var less = require('gulp-less');
@@ -79,7 +76,7 @@ gulp.task('images', function() {
     for (module in paths) {
         gulp.src(paths[module].images)
             .pipe(plumber())
-//            .pipe(imagemin({optimizationLevel: 5}))
+            .pipe(imagemin({optimizationLevel: 3}))
             .pipe(gulp.dest('public/images/' + module));
     }
 });

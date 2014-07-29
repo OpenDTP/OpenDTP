@@ -100,7 +100,7 @@
 		</div>
     <div id="footer">
       <div class="container">
-        <p class="muted credit">OpenDTP homepage.</p>
+        <p class="muted credit"></p>
       </div>
     </div>
 	@section('script')
