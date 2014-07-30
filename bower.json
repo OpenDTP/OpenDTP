@@ -18,6 +18,7 @@
     "flatui": "*",
     "bootstrap": "~3.2.0",
     "coffee-flow": "~0.0.10",
-    "Chart.js": "~0.2.0"
+    "Chart.js": "~0.2.0",
+    "toastr": "~2.0.3"
   }
 }
