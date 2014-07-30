@@ -2,7 +2,10 @@
 
 namespace App\Modules\Project\Controllers;
 
-class ProjectController extends \BaseController {
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\View;
+
+class ProjectController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -11,7 +14,7 @@ class ProjectController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        return View::make('project::site.project.list');
 	}
 
 
