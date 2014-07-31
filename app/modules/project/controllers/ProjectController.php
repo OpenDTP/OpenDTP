@@ -4,6 +4,8 @@ namespace App\Modules\Project\Controllers;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Session;
+use App\Modules\Core\Models\Api;
 
 class ProjectController extends Controller {
 
@@ -14,7 +16,8 @@ class ProjectController extends Controller {
 	 */
 	public function index()
 	{
-        return View::make('project::site.project.list');
+        $projects = Api::get('project', Session::get('session.token'));
+        return View::make('project::site.project.list', ['projects' => $projects]);
 	}
 
 

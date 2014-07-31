@@ -16,7 +16,7 @@ Route::group(
     ['prefix' => '/project', 'before' => 'oauth'],
     function () {
         Route::resource(
-            '/',
+            'list',
             'App\Modules\Project\Controllers\ProjectController'
         );
     }

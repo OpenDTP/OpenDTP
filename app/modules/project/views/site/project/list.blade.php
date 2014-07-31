@@ -1,39 +1,46 @@
 @extends('layouts.default')
 @section('title')
-{{{ Lang::get('user/project.project_title') }}} ::
+{{{ Lang::get('project/list.title') }}} ::
 @parent
 @stop
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-	<h1>Your projects</h1>
-    <table class="table table-striped">
-        <thead>
-            <th>{{{ Lang::get('user/global.preview') }}}</th>
-            <th>{{{ Lang::get('user/global.name') }}}</th>
-            <th>{{{ Lang::get('user/global.description') }}}</th>
-            <th>{{{ Lang::get('user/global.actions') }}}</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>preview</td>
-                <td>plop</td>
-                <td>description du plop</td>
-                <td>les tools</td>
-            </tr>
-            <tr>
-                <td>preview</td>
-                <td>plop</td>
-                <td>description du plop</td>
-                <td>les tools</td>
-            </tr>
-            <tr>
-                <td>preview</td>
-                <td>plop</td>
-                <td>description du plop</td>
-                <td>les tools</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="col-md-5"><h1>{{{ Lang::get('project/list.title') }}}</h1></div>
+        <div class="col-md-7"><h2>{{{ Lang::get('project/list.description') }}}</h2></div>
+    </div>
 </div>
+<table class="table table-striped table-list">
+    <thead>
+    <th>{{{ Lang::get('global.name') }}}</th>
+    <th>{{{ Lang::get('global.description') }}}</th>
+    <th>{{{ Lang::get('global.end') }}}</th>
+    <th>{{{ Lang::get('global.status') }}}</th>
+    <th>{{{ Lang::get('global.actions') }}}</th>
+    </thead>
+    <tbody>
+    @foreach ($projects as $project)
+        <tr>
+            <td>{{{ $project->name }}}</td>
+            <td>{{{ $project->description }}}</td>
+            <td>null</td>
+            <td class="status status-ok"><span class="glyphicon glyphicon-ok-circle"></span></td>
+            <td>
+                <div class="btn-group center">
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </button>
+                    <button type="button" class="btn btn-default">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </div>
+            </td>
+        </tr>
+    @endforeach
+    </tbody>
+</table>
 @stop
