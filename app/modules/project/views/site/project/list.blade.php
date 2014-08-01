@@ -3,6 +3,10 @@
 {{{ Lang::get('project/list.title') }}} ::
 @parent
 @stop
+@section('css')
+@parent
+{{HTML::style('css/project/project.min.css')}}
+@stop
 {{-- Content --}}
 @section('content')
 <div class="page-header">
@@ -27,14 +31,16 @@
             <td>null</td>
             <td class="status status-ok"><span class="glyphicon glyphicon-ok-circle"></span></td>
             <td>
-                <div class="btn-group center">
+                <div class="btn-group">
                     <button type="button" class="btn btn-default">
-                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <a href="{{{ URL::to('project/' . $project->id) }}}">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
                     </button>
                     <button type="button" class="btn btn-default">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </button>
-                    <button type="button" class="btn btn-default">
+                    <button type="button" class="btn btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </div>

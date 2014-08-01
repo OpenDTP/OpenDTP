@@ -11,13 +11,6 @@ return array(
     |
     */
 
-    'name' => 'name',
-    'description' => 'description',
-    'end' => 'end',
-    'status' => 'status',
-    'actions' => 'actions',
-    'team' => 'team',
-    'search' => 'search',
-    'calendar' => 'calendar',
+    'description' => 'Manage your project here',
 
 );
