@@ -1,0 +1,40 @@
+{
+  "name": "Coffee-Flow",
+  "version": "0.0.10",
+  "homepage": "https://github.com/droganov/Coffee-Flow",
+  "authors": [
+    "Serge <serge@droganov.ru>"
+  ],
+  "description": "Simple coverflow component that works as jQuery plugin and written with CoffeeScript",
+  "main": "js/coffeeflow.js",
+  "keywords": [
+    "coverflow",
+    "javascript",
+    "coffeescript",
+    "coffeeflow",
+    "gallery",
+    "image",
+    "select"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.9.0",
+    "hammerjs": ">= 1.0.5"
+  },
+  "_release": "0.0.10",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.0.10",
+    "commit": "8568e65b9581c99333144b777d1097461530d265"
+  },
+  "_source": "git://github.com/droganov/Coffee-Flow.git",
+  "_target": "*",
+  "_originalSource": "coffee-flow"
+}
