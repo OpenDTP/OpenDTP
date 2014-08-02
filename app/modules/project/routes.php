@@ -11,9 +11,12 @@
 |
 */
 
-
-Route::resource(
-    'project',
-    'App\Modules\Project\Controllers\ProjectController',
-    [ 'before' => [ 'oauth', 'oauth.register'] ]
+Route::group(
+    array('before' => 'oauth'),
+    function () {
+        Route::resource(
+            'project',
+            'App\Modules\Project\Controllers\ProjectController'
+        );
+    }
 );

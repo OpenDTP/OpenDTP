@@ -2,7 +2,11 @@
 
 <project name="OpenDTPAPI" basedir="." default="build">
     <target name="build">
-        <chmod file="${project.basedir}/app/storage" mode="0775" />
+        <mkdir dir="/storage/cache" mode="777"/>
+        <mkdir dir="/storage/logs" mode="777"/>
+        <mkdir dir="/storage/meta" mode="777"/>
+        <mkdir dir="/storage/sessions" mode="777"/>
+        <mkdir dir="/storage/views" mode="777"/>
         <echo msg="Build End"/>
     </target>
 

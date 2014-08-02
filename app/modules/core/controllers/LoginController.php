@@ -29,10 +29,6 @@ class LoginController extends Controller
               'grant_type' => 'password'
             ]
         );
-        $response = json_decode($response);
-        if (!isset($response->access_token)) {
-            die('pas cool !');
-        };
         Session::put('session.token', $response->access_token);
         Session::put('session.username', $login);
         Session::flash('success', 'Welcome ' . $login);

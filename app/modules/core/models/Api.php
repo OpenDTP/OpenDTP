@@ -16,12 +16,20 @@ class Api extends \Eloquent
     public static function get($query, $token = "")
     {
         try {
-            return Request::get(self::$api_url . $query)
+            $response = Request::get(self::$api_url . $query)
                 ->addHeader('Authorization', $token)
-                ->send()->body->data;
+                ->send();
         } catch (Exception $e) {
             throw new Exception('Error on the API GET of [' . $query . ']: ', 0, $e);
         }
+        if (!isset($response->body->data)) {
+            throw new \Exception(
+                'Internal API error on GET of [' . $query . ']: ' . print_r($response->body, true),
+                $response->body->status
+            );
+        }
+
+        return ($response->body->data);
     }
 
     /**
@@ -32,13 +40,21 @@ class Api extends \Eloquent
     public static function put($query, $body, $token = "")
     {
         try {
-            return \Httpful\Request::put(self::$api_url . '1')
+            $response = Request::put(self::$api_url . $query)
                 ->addHeader('Authorization', $token)
                 ->body(json_encode($body))
                 ->send();
         } catch (Exception $e) {
-            throw new Exception('Error on the API PUT of [' . '1' . ']: ', 0, $e);
+            throw new Exception('Error on the API PUT of [' . $query . ']: ', 0, $e);
         }
+        if (!isset($response->body->data)) {
+            throw new \Exception(
+                'Internal API error on PUT of [' . $query . ']: ' . print_r($response->body, true),
+                $response->body->status
+            );
+        }
+
+        return ($response->body->data);
     }
 
     /**
@@ -49,13 +65,21 @@ class Api extends \Eloquent
     public static function post($query, $body, $token = "")
     {
         try {
-            return \Httpful\Request::post(self::$api_url . $query)
+            $response = Request::post(self::$api_url . $query)
                 ->addHeader('Authorization', $token)
                 ->body(json_encode($body))
                 ->send();
         } catch (Exception $e) {
             throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
         }
+        if (!isset($response->body->data)) {
+            throw new \Exception(
+                'Internal API error on POST of [' . $query . ']: ' . print_r($response->body, true),
+                $response->body->status
+            );
+        }
+
+        return ($response->body->data);
     }
 
     /**
@@ -66,10 +90,19 @@ class Api extends \Eloquent
     public static function oauth($query, $body, $token = "")
     {
         try {
-            return \Httpful\Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
+            $response = Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
                 ->send();
+            $response = json_decode($response);
         } catch (Exception $e) {
             throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
         }
+        if (!isset($response->access_token)) {
+            throw new \Exception(
+                'Internal API error on authentification of [' . $query . ']: ' . print_r($response->body, true),
+                $response->body->status
+            );
+        }
+
+        return ($response);
     }
 }

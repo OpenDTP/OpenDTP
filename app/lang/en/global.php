@@ -19,5 +19,6 @@ return array(
     'team' => 'team',
     'search' => 'search',
     'calendar' => 'calendar',
+    'activity' => 'activity',
 
 );
