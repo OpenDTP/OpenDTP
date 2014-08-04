@@ -76,7 +76,8 @@ gulp.task('images', function() {
     for (module in paths) {
         gulp.src(paths[module].images)
             .pipe(plumber())
-            .pipe(imagemin({optimizationLevel: 3}))
+            // too slow for now
+            //.pipe(imagemin({optimizationLevel: 3}))
             .pipe(gulp.dest('public/images/' + module));
     }
 });

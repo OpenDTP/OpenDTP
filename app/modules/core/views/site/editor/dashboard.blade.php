@@ -100,6 +100,10 @@
 </div>
 </div>
 
+@stop
+@section('script')
+@parent
+{{HTML::script('js/core/core.min.js')}}
 <script>
     var randomScalingFactor = function () {
         return Math.round(Math.random() * 100)
@@ -143,8 +147,4 @@
 
 
 </script>
-@stop
-@section('script')
-@parent
-{{HTML::script('js/core/core.min.js')}}
 @stop

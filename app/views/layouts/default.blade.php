@@ -41,21 +41,14 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-                            <a class="navbar-brand brand-opendtp" href="index.html">OpenDTP</a>
+                            <a class="navbar-brand brand-opendtp" href="{{{ URL::to('') }}}">OpenDTP</a>
 
 						</div>
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav">
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-								<li {{ (Request::is('editor/*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor/dashboard') }}}">Editor</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Projects<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="projects.html">Manage projects</a></li>
-										<li><a href="teams.html">Manage teams</a></li>
-										<li><a href="#">Plan</a></li>
-									</ul>
-								</li>
+								<li {{ (Request::is('editor*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor/dashboard') }}}">Editor</a></li>
+								<li {{ (Request::is('project*') ? ' class="active"' : '') }}><a href="{{{ URL::to('project') }}}">Projects</a></li>
 								<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assets<span class="caret"></span></a>
 									<ul class="dropdown-menu" role="menu">
