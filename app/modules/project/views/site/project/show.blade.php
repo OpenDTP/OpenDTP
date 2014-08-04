@@ -11,7 +11,7 @@
 @section('content')
 <div class="page-header">
     <div class="row">
-        <div class="col-md-5"><h1>{{{ $project->name }}} (run number 2)</h1></div>
+        <div class="col-md-5"><h1>{{{ $project->name }}} <span class="badge">run 2</span></h1></div>
         <div class="col-md-7"><h2>{{{ Lang::get('project/show.description') }}}</h2></div>
     </div>
 </div>
@@ -40,11 +40,22 @@
         <div class="tab-pane fade" id="progress">
             <div class="progress">
                 <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                    40% Complete (good)
+                    run overall progress 40% Complete (good)
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3">
+                    <form action="" method="post" class="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon glyphicon glyphicon-search"></span>
+                                {{ Form::text('task-search', null, [
+                                'class' => 'form-control', 'class' => 'form-control', 'id' => 'login', 'placeholder' =>
+                                Lang::get('global.search')
+                                ]) }}
+                            </div>
+                        </div>
+                    </form>
                     <div class="list-group">
                         <a href="#" class="list-group-item active">
                             <h4 class="list-group-item-heading"><span class="label label-default">#1234</span> Make SVG logo</h4>
@@ -65,7 +76,7 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-                    <h3><span class="label label-default">#1234</span> Make SVG logo</h3>
+                    <h3>Make SVG logo</h3>
                     <p>For now logo is only in PNG format. For a more scallable logo, we need a SVG version.</p>
                     <p>You'll find the PNG version attached to this task.</p>
                     <hr />
