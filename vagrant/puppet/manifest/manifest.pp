@@ -153,6 +153,12 @@ exec {'install-composer' :
 # Additional php modules
 php::module { $php_values['modules']: }
 
+file { "/storage":
+  ensure => directory,
+  owner  => $username,
+  mode   => 777
+}
+
 ####################################################
 ###                XDebug Setup                  ###
 ####################################################

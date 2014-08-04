@@ -23,5 +23,6 @@ return array(
     'edit' => 'edit',
     'delete' => 'delete',
     'progress' => 'progress',
+    'tasks' => 'tasks',
 
 );

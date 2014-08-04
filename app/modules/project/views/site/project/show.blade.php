@@ -14,6 +14,11 @@
         <div class="col-md-5"><h1>{{{ $project->name }}} <span class="badge">run 2</span></h1></div>
         <div class="col-md-7"><h2>{{{ Lang::get('project/show.description') }}}</h2></div>
     </div>
+    <div class="progress">
+        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+            run overall progress 40% Complete (good)
+        </div>
+    </div>
 </div>
 <div class="tools">
     <div class="btn-group toolbox">
@@ -24,7 +29,7 @@
 <div class="project">
     <ul class="nav nav-pills" role="tablist">
         <li class="active"><a href="#status" role="tab" data-toggle="tab">{{{ Lang::get('global.status') }}}</a></li>
-        <li><a href="#progress" role="tab" data-toggle="tab">{{{ Lang::get('global.progress') }}}</a></li>
+        <li><a href="#tasks" role="tab" data-toggle="tab">{{{ Lang::get('global.tasks') }}}</a></li>
         <li><a href="#team" role="tab" data-toggle="tab">{{{ Lang::get('global.team') }}}</a></li>
         <li><a href="#calendar" role="tab" data-toggle="tab">{{{ Lang::get('global.calendar') }}}</a></li>
         <li><a href="#activity" role="tab" data-toggle="tab">{{{ Lang::get('global.activity') }}}</a></li>
@@ -37,12 +42,7 @@
                 <p>Everything's fine ! You can relax.</p>
             </div>
         </div>
-        <div class="tab-pane fade" id="progress">
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                    run overall progress 40% Complete (good)
-                </div>
-            </div>
+        <div class="tab-pane fade" id="tasks">
             <div class="row">
                 <div class="col-md-3">
                     <form action="" method="post" class="search">
@@ -53,6 +53,7 @@
                                 'class' => 'form-control', 'class' => 'form-control', 'id' => 'login', 'placeholder' =>
                                 Lang::get('global.search')
                                 ]) }}
+                                <span class="input-group-addon glyphicon glyphicon-chevron-right"></span>
                             </div>
                         </div>
                     </form>
@@ -75,17 +76,60 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-6">
                     <h3>Make SVG logo</h3>
                     <p>For now logo is only in PNG format. For a more scallable logo, we need a SVG version.</p>
                     <p>You'll find the PNG version attached to this task.</p>
                     <hr />
-                    <p><strong>assignee :</strong> Michael FORASTE</p>
                     <p><strong>result :</strong> logoopendtp.svg</p>
                     <p><strong>version :</strong> 1.0</p>
                     <p><strong>run associated :</strong> 2</p>
                     <p><strong>status :</strong> Validated</p>
                     <p><strong>last progress :</strong> 03/08/2014 - 10:14</p>
+                    <hr />
+                    <h4>Files attached to this document</h4>
+                    <table class="table table-hover table-condensed attached-files">
+                        <thead>
+                            <th>file</th>
+                            <th>type</th>
+                            <th>action</th>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>logoopendtp.png</td>
+                            <td>image</td>
+                            <td class="actions">
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="download">
+                                        <span class="glyphicon glyphicon-cloud-download"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="upload">
+                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                    </button>
+                                    <button type="button" class="btn btn-danger" data-toggle="tooltip" title="remove">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-3">
+                    <div class="thumbnail">
+                        <img src="/images/shared/placeholders/lindt.png" alt="lindt">
+                        <div class="caption">
+                            <p><strong>assigned to :</strong> Michael FORASTE</p>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default" data-toggle="tooltip" title="change">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                </button>
+                                <button type="button" class="btn btn-danger" data-toggle="tooltip" title="remove">
+                                    <span class="glyphicon glyphicon-remove-sign"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -100,6 +144,7 @@
                                 'class' => 'form-control', 'class' => 'form-control', 'id' => 'login', 'placeholder' =>
                                 Lang::get('global.search')
                                 ]) }}
+                                <span class="input-group-addon glyphicon glyphicon-chevron-right"></span>
                             </div>
                         </div>
                     </form>
@@ -201,7 +246,9 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <h3>tasks done</h3>
+                    <p><strong>tasks done :</strong> 6</p>
+                    <p><strong>points remaining :</strong> 0</p>
+                    <p><strong>objective :</strong> 35</p>
                 </div>
             </div>
         </div>
