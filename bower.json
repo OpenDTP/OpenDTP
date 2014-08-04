@@ -20,6 +20,7 @@
     "coffee-flow": "~0.0.10",
     "Chart.js": "~0.2.0",
     "toastr": "~2.0.3",
-    "fullcalendar": "~2.0.2"
+    "fullcalendar": "~2.0.2",
+    "d3": "~3.4.11"
   }
 }

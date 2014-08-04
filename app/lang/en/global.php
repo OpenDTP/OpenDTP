@@ -20,5 +20,8 @@ return array(
     'search' => 'search',
     'calendar' => 'calendar',
     'activity' => 'activity',
+    'edit' => 'edit',
+    'delete' => 'delete',
+    'progress' => 'progress',
 
 );
