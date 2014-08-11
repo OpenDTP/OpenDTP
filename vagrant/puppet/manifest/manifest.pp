@@ -1,4 +1,4 @@
-# Weezevent Dev Server manifest
+# OpenDTP Dev Server manifest
 # Designed for Debian Wheezy server by Michael FORASTE
 
 # loading server section
@@ -78,6 +78,11 @@ file_line { 'link ~/.bash_git':
   ]
 }
 
+# update aptitude package
+exec { "apt-get update":
+  command => "apt-get update --yes",
+}
+
 # Use init instead of upstart.
 # Upstart is not fully supported with Debian but now a standard on Ubuntu.
 Service {
@@ -105,7 +110,8 @@ class { 'apache':
   default_vhost => false,
   mpm_module    => prefork,
   manage_user   => false,
-  manage_group  => false
+  manage_group  => false,
+  require       => Exec['apt-get update']
 }
 
 file { "/var/log/apache2":
@@ -135,7 +141,8 @@ if $php_values == undef {
 
 # installing php
 class { 'php':
-  service => 'apache2'
+  service => 'apache2',
+  require => Exec['apt-get update']
 }
 
 # installing apache php mod
@@ -155,8 +162,9 @@ php::module { $php_values['modules']: }
 
 file { "/storage":
   ensure => directory,
-  owner  => $username,
-  mode   => 777
+  owner  => "www-data",
+  mode   => 777,
+  require => Class["apache"]
 }
 
 ####################################################
@@ -194,7 +202,8 @@ user { 'mailcatcher':
 }
 
 package { ['ruby-dev','sqlite3','libsqlite3-dev', 'rubygems'] :
-  ensure => 'present'
+  ensure => 'present',
+  require => Exec['apt-get update']
 } ->
 package { 'mailcatcher':
   ensure   => 'present',
@@ -254,7 +263,8 @@ vcsrepo { "/var/www/webgrind":
 }
 
 package { 'graphviz' :
-  ensure => 'installed'
+  ensure => 'installed',
+  require => Exec['apt-get update']
 }
 
 file { '/usr/local/bin/dot':
@@ -278,7 +288,8 @@ if $phpmemcachedadmin_values == undef {
 
 # Installing memcached package
 package { 'memcached' :
-  ensure => 'present'
+  ensure => 'present',
+  require => Exec['apt-get update']
 }
 
 # Installing php module
@@ -355,7 +366,8 @@ if $phpmyadmin_values == undef {
 
 # Installing phpmyadmin package
 package { 'phpmyadmin' :
-  ensure => 'present'
+  ensure => 'present',
+  require => Exec['apt-get update']
 }
 
 apache::vhost { $phpmyadmin_values['name']:
