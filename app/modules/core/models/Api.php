@@ -24,8 +24,8 @@ class Api extends \Eloquent
         }
         if (!isset($response->body->data)) {
             throw new \Exception(
-                'Internal API error on GET of [' . $query . ']: ' . print_r($response->body, true),
-                $response->body->status
+                'Internal API error on GET of [' . $query . ']: ' . print_r($response, true),
+                500
             );
         }
 
@@ -49,8 +49,8 @@ class Api extends \Eloquent
         }
         if (!isset($response->body->data)) {
             throw new \Exception(
-                'Internal API error on PUT of [' . $query . ']: ' . print_r($response->body, true),
-                $response->body->status
+                'Internal API error on PUT of [' . $query . ']: ' . print_r($response, true),
+                500
             );
         }
 
@@ -74,8 +74,8 @@ class Api extends \Eloquent
         }
         if (!isset($response->body->data)) {
             throw new \Exception(
-                'Internal API error on POST of [' . $query . ']: ' . print_r($response->body, true),
-                $response->body->status
+                'Internal API error on POST of [' . $query . ']: ' . print_r($response, true),
+                500
             );
         }
 
@@ -98,8 +98,8 @@ class Api extends \Eloquent
         }
         if (!isset($response->access_token)) {
             throw new \Exception(
-                'Internal API error on authentification of [' . $query . ']: ' . print_r($response->body, true),
-                $response->body->status
+                'Internal API error on authentification of [' . $query . ']: ' . print_r($response, true),
+                500
             );
         }
 
