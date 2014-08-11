@@ -1,4 +1,4 @@
-@extends('site.layouts.default')
+@extends('layouts.default')
 @section('title')
 {{{ Lang::get('editor/editor.editor_title_docs') }}} ::
 @parent

@@ -1,4 +1,4 @@
-@extends('site.layouts.default')
+@extends('layouts.default')
 @section('title')
 {{{ Lang::get('company/company.company_edit') }}} ::
 @parent

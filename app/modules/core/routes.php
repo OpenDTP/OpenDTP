@@ -12,7 +12,7 @@
 */
 
 
-Route::group(array('before' => 'oauth'), function () {
+// Route::group(array('before' => 'oauth'), function () {
 
     Route::get('/', function () {
         return View::make('core::site.editor.dashboard');
@@ -28,7 +28,7 @@ Route::group(array('before' => 'oauth'), function () {
     Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');
     //Route::post('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@store');
     Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@update');
-});
+// });
 
 Route::post('user/login', 'App\Modules\Core\Controllers\LoginController@login');
 Route::get('user/login', function () {
