@@ -7,6 +7,18 @@
         <mkdir dir="/storage/meta" mode="777"/>
         <mkdir dir="/storage/sessions" mode="777"/>
         <mkdir dir="/storage/views" mode="777"/>
+        <exec
+            command="npm install"
+            passthru="true"
+            />
+        <exec
+            command="bower install"
+            passthru="true"
+            />
+        <exec
+            command="gulp"
+            passthru="true"
+            />
         <echo msg="Build End"/>
     </target>
 

@@ -46,6 +46,29 @@ var modules = {
     }
 };
 
+// dependencies filename, must be a json format file
+var dependencies = 'depend.json';
+
+gulp.task('dependencies', function () {
+    for (module in paths) {
+        if (fs.existsSync(paths[module].depend)) {
+            fs.readFile(paths[module].depend, 'utf8', function (err, files) {
+                if (err) {
+                    console.log('Error: ' + err);
+                    return;
+                }
+
+                files = JSON.parse(files);
+                for (file in files) {
+                    console.log('Copying "' + files[file].src + '" to "' + files[file].dest + '"')
+                    gulp.src(files[file].src)
+                        .pipe(gulp.dest(files[file].dest));
+                }
+            });
+        }
+    }
+});
+
 gulp.task('scripts', function() {
     for (module in paths) {
         gulp.src(paths[module].scripts)
@@ -97,13 +120,18 @@ gulp.task('watch', ['scripts', 'stylesheets', 'images'], function() {
             console.log('Event type: ' + event.type);
             console.log('Event path: ' + event.path);
         });
+        gulp.watch(paths[module].depend, ['dependencies']).on('change', function (event) {
+            console.log('Event type: ' + event.type);
+            console.log('Event path: ' + event.path);
+        });
     }
 });
 
-gulp.task('default', ['scripts', 'stylesheets', 'images']);
+gulp.task('default', ['scripts', 'stylesheets', 'images', 'dependencies']);
 
 // Initialisation
 (function () {
+
     var processModules = function(source, modulesList) {
         var root;
 
@@ -113,6 +141,7 @@ gulp.task('default', ['scripts', 'stylesheets', 'images']);
             for (var element in modules[source].paths) {
                 paths[modulesList[key]][element] = modules[source].paths[element].map(function (subPath) { return root + '/' + subPath });
             }
+            paths[modulesList[key]].depend = root + '/' + dependencies;
         }
     }
 
@@ -124,6 +153,7 @@ gulp.task('default', ['scripts', 'stylesheets', 'images']);
             for (var element in modules[path].paths) {
                 paths[modules[path].name][element] = modules[path].paths[element].map(function (subPath) { return path + '/' + subPath });
             }
+            paths[modules[path].name].depend = path + '/' + dependencies;
         }
     }
 
