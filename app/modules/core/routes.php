@@ -23,11 +23,10 @@ Route::group(array('before' => 'oauth'), function () {
         return View::make('core::site.editor.' . $path);
     });
 
-    Route::pattern('id', '[0-9]+');
-    Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');
-    Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');
-    //Route::post('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@store');
-    Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@update');
+    Route::resource(
+        'user',
+        'App\Modules\Core\Controllers\UserController'
+    );
 });
 
 Route::post('user/login', 'App\Modules\Core\Controllers\LoginController@login');

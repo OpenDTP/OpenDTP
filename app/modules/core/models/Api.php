@@ -6,7 +6,7 @@ use Httpful\Request;
 
 class Api extends \Eloquent
 {
-    protected static $api_url = "http://192.168.57.101/api/v1/";
+    protected static $api_url = "http://192.168.57.101/";
 
     /**
      * Get model

@@ -13,7 +13,6 @@ return array(
     |
     */
 
-    'user_show' => 'User Show',
-    'editor_title_docs' => 'Editor Documents',
+    'description' => 'Your profile',
 
 );
