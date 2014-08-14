@@ -39,7 +39,8 @@
 @stop
 @section('script')
 @parent
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+{{HTML::script('js/core/core.min.js')}}
+{{HTML::script('js/core/ckeditor.js')}}
 <script>
 var elWrap = $(".wrap");
 var elMenu = $(".ckbar");
@@ -56,13 +57,6 @@ jQuery(document).ready(function(){
 			elWrap.removeClass("dock stop");
 		}
 	}))});
-	</script>
-	<script>
-	$("#inline2").draggable().click(function() {
-		$(this).draggable( {disabled: false});
-	}).dblclick(function() {
-		$(this).draggable({ disabled: true });
-	});
 	</script>
 	<script>
 	CKEDITOR.disableAutoInline = true;
