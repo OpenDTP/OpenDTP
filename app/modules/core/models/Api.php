@@ -28,7 +28,6 @@ class Api extends \Eloquent
                 500
             );
         }
-
         return ($response->body->data);
     }
 
@@ -53,7 +52,6 @@ class Api extends \Eloquent
                 500
             );
         }
-
         return ($response->body->data);
     }
 
@@ -62,10 +60,10 @@ class Api extends \Eloquent
      * @param  Query $query $body $token
      * @return Query
      */
-    public static function post($query, $body, $token = "")
+    public static function post($query, $body, $mime = "", $token = "")
     {
         try {
-            $response = Request::post(self::$api_url . $query)
+            $response = Request::post(self::$api_url . $query, http_build_query($body), $mime)
                 ->addHeader('Authorization', $token)
                 ->body(json_encode($body))
                 ->send();
@@ -78,7 +76,6 @@ class Api extends \Eloquent
                 500
             );
         }
-
         return ($response->body->data);
     }
 
@@ -102,7 +99,6 @@ class Api extends \Eloquent
                 500
             );
         }
-
         return ($response);
     }
 }

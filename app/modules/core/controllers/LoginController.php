@@ -12,9 +12,6 @@ class LoginController extends Controller
 {
     public function login()
     {
-        if (Session::get('session.token')) {
-            Redirect::to('/');
-        }
         $login = Input::get('login');
         $password = Input::get('password');
 
@@ -31,7 +28,7 @@ class LoginController extends Controller
         );
         Session::put('session.token', $response->access_token);
         Session::put('session.username', $login);
-        Session::flash('success', 'Welcome ' . $login);
+        Session::flash('success', 'Welcome ' . $login . " " . $response->access_token);
         return Redirect::to('/');
     }
 }
