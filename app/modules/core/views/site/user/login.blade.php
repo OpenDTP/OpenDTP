@@ -21,7 +21,7 @@
                 Give a boost to your publications projects
             </p>
         </div>
-        {{ Form::open(['url' => '/user/login', 'role' => 'form', 'class' => 'pannel']) }}
+        {{ Form::open(['url' => '/login', 'role' => 'form', 'class' => 'pannel']) }}
             <div class="form-group pannel">
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-user"></span>

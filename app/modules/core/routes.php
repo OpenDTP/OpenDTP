@@ -30,15 +30,15 @@
     Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@update');
 // });
 
-Route::post('user/login', 'App\Modules\Core\Controllers\LoginController@login');
-Route::get('user/login', function () {
+Route::post('login', 'App\Modules\Core\Controllers\LoginController@login');
+Route::get('login', function () {
     if (Session::has('session.token')) {
         return View::make('core::site.editor.dashboard');
     } else {
         return View::make('core::site.user.login');
     }
 });
-Route::get('user/logout', function () {
+Route::get('logout', function () {
     Session::flush();
     Auth::logout();
     return Redirect::to('/');
