@@ -38,6 +38,6 @@ Route::filter(
 
 Route::filter('oauth', function () {
     if (is_null(Session::get('session.token'))) {
-        return Redirect::to('user/login');
+        return Redirect::to('login');
     }
 });
