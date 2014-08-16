@@ -73,7 +73,7 @@
 									<a href="#">3 <span class="glyphicon glyphicon-info-sign"></span></a>
 								</li>
 								@if(Session::has('session.token'))
-								<li><a href="{{{ URL::to('user') }}}">Logged in as {{{Session::get('session.username')}}}</a></li>
+								<li><a href="{{{ URL::to('user') }}}">{{{Session::get('session.username')}}}</a></li>
 								<li><a href="{{{ URL::to('logout') }}}">Logout</a></li>
 								@else
 								<li {{ (Request::is('login') ? ' class="active"' : '') }}><a href="{{{ URL::to('login') }}}">Login</a></li>
