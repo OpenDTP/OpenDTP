@@ -13,6 +13,8 @@ return array(
     |
     */
 
-    'description' => 'Your profile',
+    'description' => 'your profile',
+    'since' => 'member since',
+    'last' => 'last connection',
 
 );
