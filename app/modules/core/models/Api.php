@@ -87,7 +87,6 @@ class Api extends \Eloquent
         if (isset($response->body->status) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        var_dump($response->body);die;
         if (!isset($response->body->data)) {
             $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
             $code = isset($response->body->code) ? $response->message->code : 500;

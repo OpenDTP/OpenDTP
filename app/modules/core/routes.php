@@ -22,7 +22,6 @@
 
         return View::make('core::site.editor.' . $path);
     });
-    Route::post('upload', 'App\Modules\Core\Controllers\DocumentController@postUpload');
     Route::pattern('id', '[0-9]+');
     Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');
     Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');

@@ -12,8 +12,9 @@ class DocumentController extends Controller
 {
     public function postUpload()
     {
-      if (Input::hasFile('file'))
-        $file = Input::file('file');
+        if (Input::hasFile('file')) {
+            $file = Input::file('file');
+        }
         $destinationPath = 'uploads';
         $filename = $file->getClientOriginalName();
         $extension =$file->getClientOriginalExtension();
