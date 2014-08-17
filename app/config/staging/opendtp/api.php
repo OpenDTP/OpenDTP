@@ -1,4 +1,4 @@
 <?php
 return array(
-    'url' => 'http://10.0.1.19/'
+    'url' => 'http://preprodapi.opendtp.net/'
 );
