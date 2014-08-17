@@ -103,7 +103,7 @@ class Api extends \Eloquent
      * @param  Query $query $body $token
      * @return Query
      */
-    public static function oauth($query, $body, $token = "")
+    public static function oauth($query, $body)
     {
         try {
             $response = Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
@@ -123,6 +123,22 @@ class Api extends \Eloquent
                 $code
             );
         }
+        return ($response);
+    }
+
+    public static function file($query, $token = "")
+    {
+        try {
+            $response = Request::get(self::$api_url . $query)
+                ->addHeader('Authorization', $token)
+                ->send();
+        } catch (Exception $e) {
+            throw new Exception('Error on the API GET of [' . $query . ']: ', 0, $e);
+        }
+        if (isset($response->body->status) && 400 < $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
+        }
+
         return ($response);
     }
 }

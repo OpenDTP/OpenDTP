@@ -23,13 +23,14 @@ App::after(
     }
 );
 
-App::error(function(Exception $exception)
-{
-    if (401 === $exception->getCode()) {
-        Session::flash('error', 'global.unauthorized');
-        return Redirect::to('/');
+App::error(
+    function (Exception $exception) {
+        if (401 === $exception->getCode()) {
+            Session::flash('error', 'global.unauthorized');
+            return Redirect::to('/');
+        }
     }
-});
+);
 
 Route::filter(
     'auth.basic',

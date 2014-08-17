@@ -29,6 +29,22 @@
     Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@update');
 // });
 
+    Route::get(
+        'user/picture',
+        'App\Modules\Core\Controllers\UserPictureController@index'
+    );
+
+    Route::get(
+        'user/picture/{user_id}',
+        'App\Modules\Core\Controllers\UserPictureController@show'
+    );
+
+    Route::resource(
+        'user',
+        'App\Modules\Core\Controllers\UserController'
+    );
+});
+
 Route::post('login', 'App\Modules\Core\Controllers\LoginController@login');
 Route::get('login', function () {
     if (Session::has('session.token')) {

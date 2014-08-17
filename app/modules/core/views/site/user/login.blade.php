@@ -26,13 +26,13 @@
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-user"></span>
                     {{ Form::text('login', null, [
-                        'class' => 'form-control', 'class' => 'form-control', 'id' => 'login', 'placeholder' => 'login'
+                        'class' => 'form-control', 'id' => 'login', 'placeholder' => 'login'
                     ]) }}
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon glyphicon glyphicon-asterisk"></span>
-                    {{ Form::text('password', null, [
-                        'class' => 'form-control', 'class' => 'form-control', 'id' => 'password', 'placeholder' => 'password'
+                    {{ Form::password('password', [
+                        'class' => 'form-control', 'id' => 'password', 'placeholder' => 'password'
                     ]) }}
                 </div>
                 <div class="btn-group right">

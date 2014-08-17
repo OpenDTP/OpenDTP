@@ -49,21 +49,6 @@
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 								<li {{ (Request::is('editor*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor/editor') }}}">Editor</a></li>
 								<li {{ (Request::is('project*') ? ' class="active"' : '') }}><a href="{{{ URL::to('project') }}}">Projects</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Assets<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="fonts.html">Fonts</a></li>
-										<li><a href="images.html">Images</a></li>
-										<li><a href="articles.html">Articles</a></li>
-									</ul>
-								</li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Contacts<span class="caret"></span></a>
-									<ul class="dropdown-menu" role="menu">
-										<li><a href="#">Manage contacts</a></li>
-										<li><a href="#">Manage groups</a></li>
-									</ul>
-								</li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
 								<li class="notification">
@@ -73,7 +58,7 @@
 									<a href="#">3 <span class="glyphicon glyphicon-info-sign"></span></a>
 								</li>
 								@if(Session::has('session.token'))
-								<li><a href="{{{ URL::to('user') }}}">{{{Session::get('session.username')}}}</a></li>
+								<li class="user"><a href="{{{ URL::to('user') }}}"><img src="{{{ URL::to('user/picture') }}}" /> {{{Session::get('session.username')}}}</a></li>
 								<li><a href="{{{ URL::to('logout') }}}">Logout</a></li>
 								@else
 								<li {{ (Request::is('login') ? ' class="active"' : '') }}><a href="{{{ URL::to('login') }}}">Login</a></li>

@@ -13,6 +13,7 @@ return array(
     |
     */
 
+    'title' => 'Profile',
     'description' => 'your profile',
     'since' => 'member since',
     'last' => 'last connection',
