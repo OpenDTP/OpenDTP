@@ -119,7 +119,7 @@ class Api extends \Eloquent
                 ->send();
             $response = json_decode($response);
         } catch (Exception $e) {
-            throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
+            throw new Exception('Error on the API POST of [' . $url . ']: ', 0, $e);
         }
         if (isset($response->body) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
@@ -128,7 +128,7 @@ class Api extends \Eloquent
             $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
             $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
-                'Internal API error on authentification of [' . $query . ']: ' . print_r($message, true),
+                'Internal API error on authentification of [' . $url . ']: ' . print_r($message, true),
                 $code
             );
         }
