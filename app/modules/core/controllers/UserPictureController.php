@@ -38,4 +38,4 @@ class UserPictureController extends Controller
         return Response::make($picture, 200)
             ->header('Content-Type', 'image/jpeg');
     }
-} 
+}
