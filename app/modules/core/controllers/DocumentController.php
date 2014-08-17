@@ -3,7 +3,7 @@
 namespace App\Modules\Core\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Input;
 use App\Modules\Core\Models\Api;
 use Illuminate\Support\Facades\Session;

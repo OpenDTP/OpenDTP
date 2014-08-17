@@ -26,7 +26,7 @@ class Api extends \Eloquent
         if (isset($response->body->status) && 400 < $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->data)) {
+        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
             $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
             $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
@@ -55,7 +55,7 @@ class Api extends \Eloquent
         if (isset($response->body) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->data)) {
+        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
             $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
             $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
@@ -81,13 +81,16 @@ class Api extends \Eloquent
                 $request->attach($files);
             }
             $response = $request->send();
+            if (isset($files)) {
+                $response->body = json_decode($response);
+            }
         } catch (Exception $e) {
             throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
         }
         if (isset($response->body->status) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->data)) {
+        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
             $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
             $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(

@@ -5,7 +5,7 @@
 @stop
 @section('css')
 @parent
-{{ HTML::style('css/core/basic.css');}}
+{{ HTML::style('css/core/core.min.css');}}
 <style>
 .dock .ckbar { padding-top:53px; z-index:2; position:fixed; }
 </style>
