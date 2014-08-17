@@ -6,3 +6,4 @@
 //= include ../../../bower_components/Chart.js/Chart.js
 //= include ../../../bower_components/toastr/toastr.js
 //= include ../../../bower_components/fullcalendar/dist/fullcalendar.js
+//= include ../../../bower_components/dropzone/downloads/dropzone.js

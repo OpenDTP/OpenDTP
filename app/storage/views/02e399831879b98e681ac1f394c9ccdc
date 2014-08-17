@@ -1,0 +1,24 @@
+<?php $__env->startSection('title'); ?>
+<?php echo e(Lang::get('editor/editor.editor_title')); ?> ::
+@parent
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('css'); ?>
+@parent
+<?php $__env->stopSection(); ?>
+<?php /* Content */ ?>
+<?php $__env->startSection('content'); ?>
+<div class="col-md-12">
+	<textarea name="article-body" style="height: 200px">
+    <h1>Inline Editing in Action!</h1>
+    <p>The "div" element that contains this text is now editable.
+  </textarea>
+</div>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('script'); ?>
+@parent
+<script>
+  CKEDITOR.inline( 'article-body' );
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('site.layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

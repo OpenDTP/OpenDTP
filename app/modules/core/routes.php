@@ -18,6 +18,11 @@ Route::group(array('before' => 'oauth'), function () {
         return View::make('core::site.editor.dashboard');
     });
 
+    Route::post(
+        'editor/upload',
+        'App\Modules\Core\Controllers\DocumentController@postUpload'
+    );
+
     Route::get('editor/{path?}', function ($path = 'dashboard') {
 
         return View::make('core::site.editor.' . $path);
