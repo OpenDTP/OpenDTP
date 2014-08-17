@@ -17,7 +17,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        $projects = Api::get('project', Session::get('session.token'));
+        $projects = Api::get('api/v1/project', Session::get('session.token'));
         return View::make('project::site.project.list', ['projects' => $projects]);
     }
 
@@ -52,7 +52,7 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
-        $project = Api::get("project/$id", Session::get('session.token'));
+        $project = Api::get("api/v1/project/$id", Session::get('session.token'));
         return View::make('project::site.project.show', ['project' => $project]);
     }
 
