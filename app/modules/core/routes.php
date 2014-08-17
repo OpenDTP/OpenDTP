@@ -12,7 +12,7 @@
 */
 
 
-Route::group(array('before' => 'oauth'), function () {
+// Route::group(array('before' => 'oauth'), function () {
 
     Route::get('/', function () {
         return View::make('core::site.editor.dashboard');
@@ -22,6 +22,12 @@ Route::group(array('before' => 'oauth'), function () {
 
         return View::make('core::site.editor.' . $path);
     });
+    Route::pattern('id', '[0-9]+');
+    Route::get('{model}/{id}/show', 'App\Modules\Core\Controllers\UserController@show');
+    Route::get('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@getEdit');
+    //Route::post('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@store');
+    Route::put('{model}/{id}/edit', 'App\Modules\Core\Controllers\UserController@update');
+// });
 
     Route::get(
         'user/picture',
