@@ -6,6 +6,7 @@
 @section('css')
 @parent
 {{HTML::style('css/core/core.min.css')}}
+@stop
 @show
 {{-- Content --}}
 @section('content')
