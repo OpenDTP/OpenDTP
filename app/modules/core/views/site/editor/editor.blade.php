@@ -12,7 +12,8 @@
 @stop
 {{-- Content --}}
 @section('content')
-<form action="{{ url('editor/editor')}}" class="dropzone" id="my-awesome-dropzone"></form>
+{{ Form::open(array('action'=>'App\Modules\Core\Controllers\DocumentController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
+{{ Form::close(); }}
 
 <div class="wrap">
 	<div id="top" class="ckbar" style="width:596px;"></div>
@@ -42,8 +43,15 @@
 @section('script')
 @parent
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
-{{ HTML::script('js/core/dropzone.js') }}
-
+<script>
+	Dropzone.options.myAwesomeDropzone = {
+	  paramName: "file", // The name that will be used to transfer the file
+	  maxFilesize: 2, // MB
+	  accept: function(file, done) {
+			done();
+	  }
+	};
+</script>
 // <script>
 // 	var elWrap = $(".wrap");
 // 	var elMenu = $(".ckbar");
