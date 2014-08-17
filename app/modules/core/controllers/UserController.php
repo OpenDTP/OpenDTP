@@ -3,22 +3,19 @@
 namespace App\Modules\Core\Controllers;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Http\RedirectResponse\Redirector as Redirect;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Input;
-use Opendtp\Entity\User\UserEntity;
-use Opendtp\Storage\User\UserRepository as User;
+use Illuminate\Support\Facades\Session;
+use App\Modules\Core\Models\Api;
 
 class UserController extends Controller
 {
-    public function __construct(UserEntity $user)
-    {
-        $this->user = $user;
-    }
 
     public function index()
     {
-        return $this->user->all();
+        $user = Api::get('api/v1/user', Session::get('session.token'));
+
+        return View::make('core::site.user.show', compact('user'));
     }
 
     /**

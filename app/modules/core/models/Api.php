@@ -3,10 +3,11 @@
 namespace App\Modules\Core\Models;
 
 use Httpful\Request;
+use Illuminate\Support\Facades\Session;
 
 class Api extends \Eloquent
 {
-    protected static $api_url = "http://192.168.57.101/api/v1/";
+    protected static $api_url = "http://192.168.57.101/";
 
     /**
      * Get model
@@ -22,10 +23,15 @@ class Api extends \Eloquent
         } catch (Exception $e) {
             throw new Exception('Error on the API GET of [' . $query . ']: ', 0, $e);
         }
+        if (isset($response->body->status) && 400 < $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
+        }
         if (!isset($response->body->data)) {
+            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
+            $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
-                'Internal API error on GET of [' . $query . ']: ' . print_r($response, true),
-                500
+                'Internal API error on GET of [' . $query . ']: ' . print_r($message, true),
+                $code
             );
         }
 
@@ -47,10 +53,15 @@ class Api extends \Eloquent
         } catch (Exception $e) {
             throw new Exception('Error on the API PUT of [' . $query . ']: ', 0, $e);
         }
+        if (isset($response->body) && 401 === $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
+        }
         if (!isset($response->body->data)) {
+            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
+            $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
-                'Internal API error on PUT of [' . $query . ']: ' . print_r($response, true),
-                500
+                'Internal API error on PUT of [' . $query . ']: ' . print_r($message, true),
+                $code
             );
         }
 
@@ -72,10 +83,15 @@ class Api extends \Eloquent
         } catch (Exception $e) {
             throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
         }
+        if (isset($response->body) && 401 === $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
+        }
         if (!isset($response->body->data)) {
+            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
+            $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
-                'Internal API error on POST of [' . $query . ']: ' . print_r($response, true),
-                500
+                'Internal API error on POST of [' . $query . ']: ' . print_r($message, true),
+                $code
             );
         }
 
@@ -87,7 +103,7 @@ class Api extends \Eloquent
      * @param  Query $query $body $token
      * @return Query
      */
-    public static function oauth($query, $body, $token = "")
+    public static function oauth($query, $body)
     {
         try {
             $response = Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
@@ -96,11 +112,32 @@ class Api extends \Eloquent
         } catch (Exception $e) {
             throw new Exception('Error on the API POST of [' . $query . ']: ', 0, $e);
         }
+        if (isset($response->body) && 401 === $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
+        }
         if (!isset($response->access_token)) {
+            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
+            $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
-                'Internal API error on authentification of [' . $query . ']: ' . print_r($response, true),
-                500
+                'Internal API error on authentification of [' . $query . ']: ' . print_r($message, true),
+                $code
             );
+        }
+
+        return ($response);
+    }
+
+    public static function file($query, $token = "")
+    {
+        try {
+            $response = Request::get(self::$api_url . $query)
+                ->addHeader('Authorization', $token)
+                ->send();
+        } catch (Exception $e) {
+            throw new Exception('Error on the API GET of [' . $query . ']: ', 0, $e);
+        }
+        if (isset($response->body->status) && 400 < $response->body->status) {
+            throw new \Exception($response->body->error, $response->body->status);
         }
 
         return ($response);

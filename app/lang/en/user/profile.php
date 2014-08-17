@@ -13,7 +13,9 @@ return array(
     |
     */
 
-    'user_show' => 'User Show',
-    'editor_title_docs' => 'Editor Documents',
+    'title' => 'Profile',
+    'description' => 'your profile',
+    'since' => 'member since',
+    'last' => 'last connection',
 
 );
