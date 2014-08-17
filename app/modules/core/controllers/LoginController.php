@@ -16,7 +16,6 @@ class LoginController extends Controller
         $password = Input::get('password');
 
         $response = Api::oauth(
-            'http://192.168.57.101/oauth/access_token',
             [
               'username' => $login,
               'password' => $password,
@@ -28,7 +27,7 @@ class LoginController extends Controller
         );
         Session::put('session.token', $response->access_token);
         Session::put('session.username', $login);
-        Session::flash('success', 'Welcome ' . $login . " " . $response->access_token);
+        Session::flash('success', 'Welcome ' . $login);
         return Redirect::to('/');
     }
 }

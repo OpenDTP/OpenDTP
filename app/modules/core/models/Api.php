@@ -3,12 +3,10 @@
 namespace App\Modules\Core\Models;
 
 use Httpful\Request;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Config;
 
 class Api extends \Eloquent
 {
-    protected static $api_url = "http://192.168.57.101/";
-
     /**
      * Get model
      * @param  Query $query $token
@@ -16,8 +14,10 @@ class Api extends \Eloquent
      */
     public static function get($query, $token = "")
     {
+        $api_url = Config::get('opendtp/api.url');
+
         try {
-            $response = Request::get(self::$api_url . $query)
+            $response = Request::get($api_url . $query)
                 ->addHeader('Authorization', $token)
                 ->send();
         } catch (Exception $e) {
@@ -44,8 +44,10 @@ class Api extends \Eloquent
      */
     public static function put($query, $body, $token = "")
     {
+        $api_url = Config::get('opendtp/api.url');
+
         try {
-            $response = Request::put(self::$api_url . $query)
+            $response = Request::put($api_url . $query)
                 ->addHeader('Authorization', $token)
                 ->body(json_encode($body))
                 ->send();
@@ -73,8 +75,10 @@ class Api extends \Eloquent
      */
     public static function post($query, $body, $mime = "", $token = "", $files = array())
     {
+        $api_url = Config::get('opendtp/api.url');
+
         try {
-            $request = Request::post(self::$api_url . $query, http_build_query($body), $mime)
+            $request = Request::post($api_url . $query, http_build_query($body), $mime)
                 ->addHeader('Authorization', $token)
                 ->body($body);
             if (isset($files)) {
@@ -106,10 +110,12 @@ class Api extends \Eloquent
      * @param  Query $query $body $token
      * @return Query
      */
-    public static function oauth($query, $body)
+    public static function oauth($body)
     {
+        $url = Config::get('opendtp/api.url') . '/oauth/access_token';
+
         try {
-            $response = Request::post($query, http_build_query($body), 'application/x-www-form-urlencoded')
+            $response = Request::post($url, http_build_query($body), 'application/x-www-form-urlencoded')
                 ->send();
             $response = json_decode($response);
         } catch (Exception $e) {
@@ -131,8 +137,10 @@ class Api extends \Eloquent
 
     public static function file($query, $token = "")
     {
+        $api_url = Config::get('opendtp/api.url');
+
         try {
-            $response = Request::get(self::$api_url . $query)
+            $response = Request::get($api_url . $query)
                 ->addHeader('Authorization', $token)
                 ->send();
         } catch (Exception $e) {
