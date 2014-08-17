@@ -1,8 +1,12 @@
 @extends('layouts.default')
 @section('title')
-{{{ Lang::get('user/user.user_title') }}} ::
+{{{ Lang::get('user/profile.title') }}} ::
 @parent
 @stop
+@section('css')
+@parent
+{{HTML::style('css/core/core.min.css')}}
+@show
 {{-- Content --}}
 @section('content')
 <div class="page-header">
@@ -13,7 +17,7 @@
 </div>
 <div class="row">
     <div class="col-md-3">
-        <img src="/images/shared/placeholders/lindt.png" class="thumbnail" alt="lindt">
+        <img src="{{{ URL::to('user/picture') }}}" class="thumbnail thumbnail-user" alt="user thumbnail">
     </div>
     <div class="col-md-9">
         <div class="row">

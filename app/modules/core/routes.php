@@ -23,6 +23,16 @@ Route::group(array('before' => 'oauth'), function () {
         return View::make('core::site.editor.' . $path);
     });
 
+    Route::get(
+        'user/picture',
+        'App\Modules\Core\Controllers\UserPictureController@index'
+    );
+
+    Route::get(
+        'user/picture/{user_id}',
+        'App\Modules\Core\Controllers\UserPictureController@show'
+    );
+
     Route::resource(
         'user',
         'App\Modules\Core\Controllers\UserController'
