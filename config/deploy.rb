@@ -28,6 +28,12 @@ set :pty, true
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
+set :slack_subdomain, 'opendtp'
+set :slack_token, 'dPDEMRxoa27MUhNB3rbOSHjD'
+set :slack_channel, '#opendtp_front'
+set :slack_username, 'Mr Deploy'
+set :slack_emoji, ':odtp:'
+
 # Default value for keep_releases is 5
 set :keep_releases, 3
 
