@@ -119,7 +119,7 @@
                     <div class="thumbnail">
                         <img src="/images/shared/placeholders/lindt.png" alt="lindt">
                         <div class="caption">
-                            <p><strong>assigned to :</strong> Michael FORASTE</p>
+                            <p><strong>assigned to :</strong> Michael FORASTE {{{ $project->user_id }}}</p>
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default" data-toggle="tooltip" title="change">
                                     <span class="glyphicon glyphicon-user"></span>
