@@ -6,6 +6,8 @@
 
 role :preprod, %w{forast_m@thor.opendtp.net}
 
+set :default_env, { APPLICATION_ENV: "staging" }
+
 set :default_env, {
   'APPLICATION_ENV' => 'staging'
 }

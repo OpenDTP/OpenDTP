@@ -10,6 +10,8 @@ set :default_env, {
   'APPLICATION_ENV' => 'production'
 }
 
+set :default_env, { APPLICATION_ENV: "production" }
+
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/data/www'
 set :branch, "master"
