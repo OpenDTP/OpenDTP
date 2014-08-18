@@ -1,0 +1,8 @@
+[
+    { "src" : "bower_components/ckeditor/ckeditor.js", "dest" : "public/js/core/" },
+    { "src" : "bower_components/ckeditor/lang/**", "dest" : "public/js/core/lang" },
+    { "src" : "bower_components/ckeditor/skins/**", "dest" : "public/js/core/skins" },
+    { "src" : "bower_components/ckeditor/plugins/**", "dest" : "public/js/core/plugins" },
+    { "src" : "app/modules/core/views/scripts/config.js", "dest" : "public/js/core/" },
+    { "src" : "app/modules/core/views/scripts/styles.js", "dest" : "public/js/core/" }
+]
