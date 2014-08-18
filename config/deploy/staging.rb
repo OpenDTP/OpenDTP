@@ -6,6 +6,10 @@
 
 role :preprod, %w{forast_m@thor.opendtp.net}
 
+set :default_env, {
+  'APPLICATION_ENV' => 'staging'
+}
+
 # Default deploy_to directory is /var/www/my_app
 set :deploy_to, '/data/preprod'
 set :branch, "preprod"
