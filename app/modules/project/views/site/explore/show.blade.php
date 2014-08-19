@@ -26,6 +26,26 @@
     <th>{{{ Lang::get('global.actions') }}}</th>
     </thead>
     <tbody>
+        @foreach ($documents as $document)
+            <tr>
+                <td>{{{ $document->name }}}</td>
+                <td>{{{ $document->description }}}</td>
+                <td>null</td>
+                <td></td>
+                <td></td>
+                <td class="status status-ok"><span class="glyphicon glyphicon-ok-circle"></span></td>
+                <td>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </button>
+                        <button type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
 @stop
