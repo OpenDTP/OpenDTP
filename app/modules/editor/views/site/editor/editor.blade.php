@@ -12,7 +12,7 @@
 @stop
 {{-- Content --}}
 @section('content')
-{{ Form::open(array('action'=>'App\Modules\Core\Controllers\DocumentController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
+{{ Form::open(array('action'=>'App\Modules\Editor\Controllers\EditorController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
 {{ Form::close(); }}
 
 <div style="overflow: auto; padding: 20px; margin: 20px;  border-style:groove;">
