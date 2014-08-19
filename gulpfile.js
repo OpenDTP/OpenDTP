@@ -27,8 +27,8 @@ var modules = {
 
         // path definitions
         'paths' : {
-            'scripts' : [ 'views/scripts/**/*.js' ],
-            'stylesheets' : [ 'views/stylesheets/**/*.less' ],
+            'scripts' : [ 'views/scripts/**/app.js' ],
+            'stylesheets' : [ 'views/stylesheets/**/app.less' ],
             'images' :  [ 'views/images/**/*.*' ]
         }
     },
@@ -38,8 +38,8 @@ var modules = {
         // each compiled files will have his module name
         'modules' : true,
         'paths' : {
-            'scripts' : [ 'views/scripts/**/*.js' ],
-            'stylesheets' : [ 'views/stylesheets/**/*.less' ],
+            'scripts' : [ 'views/scripts/**/app.js' ],
+            'stylesheets' : [ 'views/stylesheets/**/app.less' ],
             'images' :  [ 'views/images/**/*.*' ]
         }
     }
@@ -61,6 +61,7 @@ gulp.task('dependencies', function () {
                 for (file in files) {
                     console.log('Copying "' + files[file].src + '" to "' + files[file].dest + '"')
                     gulp.src(files[file].src)
+                        .pipe(plumber())
                         .pipe(gulp.dest(files[file].dest));
                 }
             });
@@ -103,7 +104,7 @@ gulp.task('images', function() {
 });
 
 // Rerun the task when a file changes
-gulp.task('watch', ['scripts', 'stylesheets', 'images'], function() {
+gulp.task('watch', ['scripts', 'stylesheets', 'images', 'dependencies'], function() {
     for (module in paths) {
         gulp.watch(paths[module].scripts, ['scripts']).on('change', function (event) {
             console.log('Event type: ' + event.type);

@@ -6,10 +6,6 @@
 
 role :prod, %w{forast_m@thor.opendtp.net}
 
-set :default_env, {
-  'APPLICATION_ENV' => 'production'
-}
-
 set :default_env, { APPLICATION_ENV: "production" }
 
 # Default deploy_to directory is /var/www/my_app
