@@ -7,6 +7,9 @@
         <mkdir dir="/storage/meta" mode="777"/>
         <mkdir dir="/storage/sessions" mode="777"/>
         <mkdir dir="/storage/views" mode="777"/>
+        <mkdir dir="${project.basedir}/build" mode="755"/>
+        <mkdir dir="${project.basedir}/build/report" mode="755"/>
+        <mkdir dir="${project.basedir}/build/html" mode="755"/>
         <exec
             command="npm install"
             passthru="true"
@@ -20,14 +23,6 @@
             passthru="true"
             />
         <echo msg="Build End"/>
-    </target>
-
-    <target name="build-dev" depends="build">
-        <mkdir dir="${project.basedir}/build" mode="755"/>
-        <mkdir dir="${project.basedir}/build/report" mode="755"/>
-        <mkdir dir="${project.basedir}/build/html" mode="755"/>
-        <phingcall target="quality-analyse"/>
-        <echo msg="Dev Build End"/>
     </target>
 
     <!-- Code quality analyse rules -->
