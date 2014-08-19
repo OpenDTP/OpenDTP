@@ -12,7 +12,6 @@
     "gulp-sourcemaps": "^1.1.0",
     "gulp-uglify": "^0.3.1",
     "gulp-include": "~0.2.3",
-    "gulp-plumber": "~0.6.4",
-    "imagemin": "~0.4.6"
+    "gulp-plumber": "~0.6.4"
   }
 }
