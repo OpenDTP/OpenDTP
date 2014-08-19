@@ -28,9 +28,6 @@
 <!--		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{{ asset('assets/ico/apple-touch-icon-72-precomposed.png') }}}">-->
 <!--		<link rel="apple-touch-icon-precomposed" href="{{{ asset('assets/ico/apple-touch-icon-57-precomposed.png') }}}">-->
 		<link rel="shortcut icon" href="{{{ asset('images/shared/favicon.png') }}}">
-        @section('headScript')
-        {{HTML::script('js/shared/shared.min.js')}}
-        @show
 	</head>
 
 	<body>
@@ -85,6 +82,8 @@
       </div>
     </div>
 	@section('script')
+        {{HTML::script('js/shared/shared.min.js')}}
 	@show
+    @yield('scripts')
 	</body>
 </html>
