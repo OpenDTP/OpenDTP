@@ -15,12 +15,15 @@
 {{ Form::open(array('action'=>'App\Modules\Core\Controllers\DocumentController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
 {{ Form::close(); }}
 
+<div class="wrap">
+	<div id="top" class="ckbar" style="width:596px;"></div>
+</div>
 <div style="overflow: auto; padding: 20px; margin: 20px;  border-style:groove;">
 	<div  id="inline1_outer" style="width: 500px; float: left;">
 		<div contenteditable="true" id="inline1" style="width: 500px; float: left;">
 			<h3>Inline1</h3>
 			<p>Donec ullamcorper, risus tortor, pretium porttitor. Morbi quam quis lectus non leo.</p>
-			<p style="margin-left: 40px;">Integer faucibus scelerisque. Proin faucibus at, aliquet vulputate, odio at eros. Fusce <a href="http://tinymce.com/">gravida, erat vitae augue</a>. Fusce urna fringilla gravida.</p>
+			<p style="margin-left: 40px;">Integer faucibus scelerisque. Proin faucibus at, aliquet vulputate, odio at eros. Fusce <a href="http://ckeditor.com/">gravida, erat vitae augue</a>. Fusce urna fringilla gravida.</p>
 			<p>In hac habitasse platea dictumst. Praesent wisi accumsan sit amet nibh. Maecenas orci luctus a, lacinia quam sem, posuere commodo, odio condimentum tempor, pede semper risus. Suspendisse pede. In hac habitasse platea dictumst. Nam sed laoreet sit amet erat. Integer.</p>
 			<p>In hac habitasse platea dictumst. Praesent wisi accumsan sit amet nibh. Maecenas orci luctus a, lacinia quam sem, posuere commodo, odio condimentum tempor, pede semper risus. Suspendisse pede. In hac habitasse platea dictumst. Nam sed laoreet sit amet erat. Integer.</p>
 			<p>In hac habitasse platea dictumst. Praesent wisi accumsan sit amet nibh. Maecenas orci luctus a, lacinia quam sem, posuere commodo, odio condimentum tempor, pede semper risus. Suspendisse pede. In hac habitasse platea dictumst. Nam sed laoreet sit amet erat. Integer.</p>
@@ -39,7 +42,7 @@
 @stop
 @section('script')
 @parent
-{{HTML::script('js/core/core.min.js')}}
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
 <script>
 	Dropzone.options.myAwesomeDropzone = {
 	  paramName: "file", // The name that will be used to transfer the file
@@ -49,16 +52,42 @@
 	  }
 	};
 </script>
-<script>
-    tinymce.init({
-        selector: "#inline1,#inline2",
-        theme: "modern",
-        add_unload_trigger: false,
-        menu: {},
-        schema: "html5",
-        inline: true,
-        toolbar: "undo redo | styleselect | bullist numlist | preview",
-        statusbar: false
-    });
-</script>
-@stop
+// <script>
+// 	var elWrap = $(".wrap");
+// 	var elMenu = $(".ckbar");
+// 	var osMenu = elMenu.offset().top;
+// 	jQuery(document).ready(function(){
+// 		$(window).scroll($.throttle(10, function() {
+// 			elMenu.css("top", 0);
+// 			var edge = $(window).scrollTop();
+//
+// 			if (osMenu <= edge + 53) {
+// 				elWrap.addClass("dock").removeClass("stop");
+// 			}
+// 			else {
+// 				elWrap.removeClass("dock stop");
+// 			}
+// 		}))});
+// 	</script>
+// 	<script>
+// 	$("#inline2").draggable().click(function() {
+// 		$(this).draggable( {disabled: false});
+// 	}).dblclick(function() {
+// 		$(this).draggable({ disabled: true });
+// 	});
+// 	</script>
+// 	<script>
+// 	CKEDITOR.disableAutoInline = true;
+// 	CKEDITOR.inline( 'inline1', {
+// 		sharedSpaces: {
+// 			top: 'top'
+// 		}
+// 	});
+//
+// 	CKEDITOR.inline( 'inline2', {
+// 		sharedSpaces: {
+// 			top: 'top'
+// 		}
+// 	});
+// 	</script>
+	@stop
