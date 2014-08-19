@@ -2,7 +2,13 @@
 
 namespace App\Modules\Editor\Controllers;
 
-class EditorController extends \BaseController
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Response;
+use App\Modules\Core\Models\Api;
+
+class EditorController extends Controller
 {
 
     /**
