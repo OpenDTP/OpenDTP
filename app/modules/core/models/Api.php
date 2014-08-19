@@ -26,12 +26,10 @@ class Api extends \Eloquent
         if (isset($response->body->status) && 400 < $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
-            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
-            $code = isset($response->body->code) ? $response->message->code : 500;
+        if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on GET of [' . $query . ']: ' . print_r($message, true),
-                $code
+                'Internal API error on GET of [' . $query . ']: ' . print_r($response->body->messages, true),
+                $response->body->code
             );
         }
         return ($response->body->data);
@@ -57,12 +55,10 @@ class Api extends \Eloquent
         if (isset($response->body) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
-            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
-            $code = isset($response->body->code) ? $response->message->code : 500;
+        if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on PUT of [' . $query . ']: ' . print_r($message, true),
-                $code
+                'Internal API error on PUT of [' . $query . ']: ' . print_r($response->body->messages, true),
+                $response->body->code
             );
         }
         return ($response->body->data);
@@ -94,12 +90,10 @@ class Api extends \Eloquent
         if (isset($response->body->status) && 401 === $response->body->status) {
             throw new \Exception($response->body->error, $response->body->status);
         }
-        if (!isset($response->body->code) || (isset($response->body->code) && $response->body->code !== 200)) {
-            $message = isset($response->body->message) ? $response->message->body : print_r($response, true);
-            $code = isset($response->body->code) ? $response->message->code : 500;
+        if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on POST of [' . $query . ']: ' . print_r($message, true),
-                $code
+                'Internal API error on POST of [' . $query . ']: ' . print_r($response->body->messages, true),
+                $response->body->code
             );
         }
         return ($response->body->data);
