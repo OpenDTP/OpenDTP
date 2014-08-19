@@ -18,5 +18,10 @@ Route::group(
             'project',
             'App\Modules\Project\Controllers\ProjectController'
         );
+
+        Route::get(
+            'explore',
+            'App\Modules\Project\Controllers\ExploreController@index'
+        );
     }
 );

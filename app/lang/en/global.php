@@ -24,5 +24,8 @@ return array(
     'delete' => 'delete',
     'progress' => 'progress',
     'tasks' => 'tasks',
+    'version' => 'version',
+    'project' => 'project',
+    'company' => 'company',
 
 );
