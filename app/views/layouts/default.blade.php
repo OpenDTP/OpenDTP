@@ -54,19 +54,20 @@
 								<li {{ (Request::is('project*') ? ' class="active"' : '') }}><a href="{{{ URL::to('project') }}}">Projects</a></li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
-								<li class="notification">
-									<a href="#">2 <span class="glyphicon glyphicon-calendar"></span></a>
-								</li>
-								<li class="notification">
-									<a href="#">3 <span class="glyphicon glyphicon-info-sign"></span></a>
-								</li>
-								@if(Session::has('session.token'))
 								<li class="user"><a href="{{{ URL::to('user') }}}"><img src="{{{ URL::to('user/picture') }}}" /> {{{Session::get('session.username')}}}</a></li>
+								<li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        <span class="glyphicon glyphicon-plus"></span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="{{{ URL::to('project/create') }}}">New company</a></li>
+                                        <li><a href="{{{ URL::to('project/create') }}}">New project</a></li>
+                                        <li><a href="{{{ URL::to('ticket/create') }}}">New task</a></li>
+                                        <li><a href="{{{ URL::to('document/create') }}}">New document</a></li>
+                                    </ul>
+                                </li>
 								<li><a href="{{{ URL::to('logout') }}}">Logout</a></li>
-								@else
-								<li {{ (Request::is('login') ? ' class="active"' : '') }}><a href="{{{ URL::to('login') }}}">Login</a></li>
-								<li {{ (Request::is('register') ? ' class="active"' : '') }}><a href="{{{ URL::to('create') }}}">{{{ Lang::get('Register') }}}</a></li>
-								@endif
 							</ul>
 					  </div>
 				 </div>
