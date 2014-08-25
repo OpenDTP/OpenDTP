@@ -19,7 +19,6 @@ class EditorController extends Controller
      */
     public function edit($id)
     {
-
     }
 
     public function postUpload()
@@ -29,7 +28,7 @@ class EditorController extends Controller
         }
         $destinationPath = 'uploads';
         $filename = $file->getClientOriginalName();
-        $extension =$file->getClientOriginalExtension();
+        $extension = $file->getClientOriginalExtension();
         $upload_success = Api::post(
             'api/v1/document',
             [
@@ -48,5 +47,4 @@ class EditorController extends Controller
             return Response::json('error', 400);
         }
     }
-
 }

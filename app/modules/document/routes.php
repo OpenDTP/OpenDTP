@@ -23,13 +23,9 @@
 
 Route::group(array('before' => 'oauth'), function () {
 
-    Route::post(
-        'editor/upload',
-        'App\Modules\Editor\Controllers\EditorController@postUpload'
+    Route::resource(
+        'document',
+        'App\Modules\Document\Controllers\DocumentController'
     );
-
-    Route::get('/editor', function () {
-        return View::make('editor::site.editor.editor');
-    });
 
 });

@@ -28,7 +28,7 @@ class Api extends \Eloquent
         }
         if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on GET of [' . $query . ']: ' . print_r($response->body->messages, true),
+                'API request failed on GET of [' . $query . ']: ' . print_r($response->body->messages, true),
                 $response->body->code
             );
         }
@@ -57,7 +57,7 @@ class Api extends \Eloquent
         }
         if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on PUT of [' . $query . ']: ' . print_r($response->body->messages, true),
+                'API request failed on PUT of [' . $query . ']: ' . print_r($response->body->messages, true),
                 $response->body->code
             );
         }
@@ -92,7 +92,7 @@ class Api extends \Eloquent
         }
         if ($response->body->code !== 200) {
             throw new \Exception(
-                'Internal API error on POST of [' . $query . ']: ' . print_r($response->body->messages, true),
+                'API request failed on POST of [' . $query . ']: ' . print_r($response->body->messages, true),
                 $response->body->code
             );
         }
