@@ -3,8 +3,10 @@
 namespace App\Modules\Project\Controllers;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Redirect;
 use App\Modules\Core\Models\Api;
 
 class ProjectController extends Controller
@@ -29,7 +31,19 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return View::make('project::site.project.create');
+        $user = Api::get('api/v1/user', Session::get('session.token'));
+        $companies_names = [];
+        $companies = $user->partners;
+
+        if (isset($user->company)) {
+            $companies[] = $user->company;
+        }
+
+        foreach ($companies as $company) {
+            $companies_names[$company->id] = $company->name;
+        }
+
+        return View::make('project::site.project.create', [ 'companies_name' => $companies_names ]);
     }
 
 
@@ -40,7 +54,8 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        //
+        $project = Api::post('api/v1/project', Input::all(), null, Session::get('session.token'));
+        return Redirect::to('/project/' . $project->id)->with('success', 'Successfully created project ' . $project->name);
     }
 
 
@@ -53,8 +68,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Api::get("api/v1/project/$id", Session::get('session.token'));
-        $tickets = Api::get("api/v1/project/$id/ticket", Session::get('session.token'));
-        return View::make('project::site.project.show', ['project' => $project, 'tickets' => $tickets]);
+//        $tickets = Api::get("api/v1/project/$id/ticket", Session::get('session.token'));
+        return View::make('project::site.project.show', ['project' => $project]);
     }
 
 
