@@ -43,7 +43,7 @@ class ProjectController extends Controller
             $companies_names[$company->id] = $company->name;
         }
 
-        return View::make('project::site.project.create', [ 'companies_name' => $companies_names ]);
+        return View::make('project::site.project.create', ['companies_name' => $companies_names]);
     }
 
 
@@ -55,7 +55,8 @@ class ProjectController extends Controller
     public function store()
     {
         $project = Api::post('api/v1/project', Input::all(), null, Session::get('session.token'));
-        return Redirect::to('/project/' . $project->id)->with('success', 'Successfully created project ' . $project->name);
+        return Redirect::to('/project/' . $project->id)
+            ->with('success', 'Successfully created project ' . $project->name);
     }
 
 
