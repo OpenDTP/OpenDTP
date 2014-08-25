@@ -1,17 +1,23 @@
-@extends('site.layouts.default')
+@extends('layouts.default')
 @section('title')
-{{{ Lang::get('user/user.user_show') }}} ::
+{{{ $company->name }}} ::
 @parent
+@stop
+@section('css')
+@parent
+{{HTML::style('css/project/core.min.css')}}
 @stop
 {{-- Content --}}
 @section('content')
 <div class="page-header">
-  <h1>Company Profile</h1>
+    <div class="row">
+        <div class="col-md-5"><h1>{{{ $company->name }}}</h1></div>
+        <div class="col-md-7"><h2>{{{ $company->description }}}</h2></div>
+    </div>
 </div>
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>#</th>
         <th>Name</th>
         <th>Description</th>
         <th>Created</th>
@@ -20,11 +26,10 @@
     </thead>
     <tbody>
     <tr>
-        <td>{{{$response->id}}}</td>
-        <td>{{{$response->name}}}</td>
-        <td>{{{$response->description}}}</td>
-        <td>{{{$response->created_at}}}</td>
-        <td>{{{$response->valid}}}</td>
+        <td>{{{$company->name}}}</td>
+        <td>{{{$company->description}}}</td>
+        <td>{{{$company->created_at}}}</td>
+        <td>{{{$company->valid}}}</td>
     </tr>
     </tbody>
 </table>

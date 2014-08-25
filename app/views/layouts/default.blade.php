@@ -52,6 +52,7 @@
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
 								<li {{ (Request::is('editor*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor') }}}">Editor</a></li>
 								<li {{ (Request::is('project*') ? ' class="active"' : '') }}><a href="{{{ URL::to('project') }}}">Projects</a></li>
+								<li {{ (Request::is('company*') ? ' class="active"' : '') }}><a href="{{{ URL::to('company') }}}">Companies</a></li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
 								<li class="user"><a href="{{{ URL::to('user') }}}"><img src="{{{ URL::to('user/picture') }}}" /> {{{Session::get('session.username')}}}</a></li>
@@ -61,7 +62,7 @@
                                         <span class="caret"></span>
                                     </a>
                                     <ul class="dropdown-menu" role="menu">
-                                        <li><a href="{{{ URL::to('project/create') }}}">New company</a></li>
+                                        <li><a href="{{{ URL::to('company/create') }}}">New company</a></li>
                                         <li><a href="{{{ URL::to('project/create') }}}">New project</a></li>
                                         <li><a href="{{{ URL::to('ticket/create') }}}">New task</a></li>
                                         <li><a href="{{{ URL::to('document/create') }}}">New document</a></li>

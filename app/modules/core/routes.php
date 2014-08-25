@@ -32,6 +32,11 @@ Route::group(array('before' => 'oauth'), function () {
         'user',
         'App\Modules\Core\Controllers\UserController'
     );
+
+    Route::resource(
+        'company',
+        'App\Modules\Core\Controllers\CompanyController'
+    );
 });
 
 Route::post('login', 'App\Modules\Core\Controllers\LoginController@login');
