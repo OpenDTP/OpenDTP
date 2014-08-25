@@ -4,6 +4,8 @@ namespace App\Modules\Core\Controllers;
 
 use App\Modules\Core\Models\Api;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\View;
 
@@ -39,7 +41,8 @@ class CompanyController extends Controller {
 	 */
 	public function store()
 	{
-		//
+		$company = Api::post('api/v1/company', Input::all(), null, Session::get('session.token'));
+        return Redirect::to('/company/' . $company->id)->with('success', 'Successfully created company ' . $company->name);
 	}
 
 
