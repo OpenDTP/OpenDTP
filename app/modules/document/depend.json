@@ -1,0 +1,4 @@
+[
+    { "src" : "bower_components/jstree/dist/themes/default/*.png", "dest" : "public/css/document" },
+    { "src" : "bower_components/jstree/dist/themes/default/*.gif", "dest" : "public/css/document" }
+]

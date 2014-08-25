@@ -50,9 +50,9 @@
 						<div class="collapse navbar-collapse navbar-ex1-collapse">
 							<ul class="nav navbar-nav">
 								<li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
-								<li {{ (Request::is('editor*') ? ' class="active"' : '') }}><a href="{{{ URL::to('editor') }}}">Editor</a></li>
 								<li {{ (Request::is('project*') ? ' class="active"' : '') }}><a href="{{{ URL::to('project') }}}">Projects</a></li>
 								<li {{ (Request::is('company*') ? ' class="active"' : '') }}><a href="{{{ URL::to('company') }}}">Companies</a></li>
+								<li {{ (Request::is('document*') ? ' class="active"' : '') }}><a href="{{{ URL::to('document') }}}">Documents</a></li>
 							</ul>
 							<ul class="nav navbar-nav pull-right">
 								<li class="user"><a href="{{{ URL::to('user') }}}"><img src="{{{ URL::to('user/picture') }}}" /> {{{Session::get('session.username')}}}</a></li>
