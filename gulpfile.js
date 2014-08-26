@@ -86,6 +86,7 @@ gulp.task('stylesheets', function() {
     for (module in paths) {
         gulp.src(paths[module].stylesheets)
             .pipe(plumber())
+            .pipe(include())
             .pipe(sourcemaps.init())
             .pipe(less())
             .pipe(csso())

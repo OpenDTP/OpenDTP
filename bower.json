@@ -24,6 +24,7 @@
     "d3": "~3.4.11",
     "dropzone": "~3.10.2",
     "tinymce": "~4.1.3",
-    "validate": "~0.2.0"
+    "jquery-validation": "~1.13.0",
+    "jstree": "~3.0.3"
   }
 }

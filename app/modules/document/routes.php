@@ -11,17 +11,21 @@
 |
 */
 
-Route::group(
-    array('before' => 'oauth'),
-    function () {
-        Route::resource(
-            'project',
-            'App\Modules\Project\Controllers\ProjectController'
-        );
-        Route::get(
-            'ticket/{id}',
-            'App\Modules\Core\Controllers\ProjectController'
-        );
+//Route::group(
+//    array('before' => 'oauth'),
+//    function () {
+//        Route::resource(
+//            'project',
+//            'App\Modules\Project\Controllers\ProjectController'
+//        );
+//    }
+//);
 
-    }
-);
+Route::group(array('before' => 'oauth'), function () {
+
+    Route::resource(
+        'document',
+        'App\Modules\Document\Controllers\DocumentController'
+    );
+
+});

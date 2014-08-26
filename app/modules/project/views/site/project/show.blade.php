@@ -58,79 +58,16 @@
                         </div>
                     </form>
                     <div class="list-group">
-                        <a href="#" class="list-group-item active">
-                            <h4 class="list-group-item-heading"><span class="label label-default">#1234</span> Make SVG logo</h4>
+                      @foreach($tickets as $ticket)
+                        <a href="#" class="list-group-item">
+                            <h4 class="list-group-item-heading"><span class="label label-default">#{{{$ticket->id}}}</span> {{{$ticket->name}}}</h4>
                             <p><strong>points :</strong> 5</p>
                         </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading"><span class="label label-default">#154</span> Edito</h4>
-                            <p><strong>points :</strong> 10</p>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading"><span class="label label-default">#1009</span> Shampoo article</h4>
-                            <p><strong>points :</strong> 10</p>
-                        </a>
-                        <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading"><span class="label label-default">#1224</span> Editos photos</h4>
-                            <p><strong>points :</strong> 3</p>
-                        </a>
+                      @endforeach
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <h3>Make SVG logo</h3>
-                    <p>For now logo is only in PNG format. For a more scallable logo, we need a SVG version.</p>
-                    <p>You'll find the PNG version attached to this task.</p>
-                    <hr />
-                    <p><strong>result :</strong> logoopendtp.svg</p>
-                    <p><strong>version :</strong> 1.0</p>
-                    <p><strong>run associated :</strong> 2</p>
-                    <p><strong>status :</strong> Validated</p>
-                    <p><strong>last progress :</strong> 03/08/2014 - 10:14</p>
-                    <hr />
-                    <h4>Files attached to this document</h4>
-                    <table class="table table-hover table-condensed attached-files">
-                        <thead>
-                            <th>file</th>
-                            <th>type</th>
-                            <th>action</th>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>logoopendtp.png</td>
-                            <td>image</td>
-                            <td class="actions">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="download">
-                                        <span class="glyphicon glyphicon-cloud-download"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-default" data-toggle="tooltip" title="upload">
-                                        <span class="glyphicon glyphicon-cloud-upload"></span>
-                                    </button>
-                                    <button type="button" class="btn btn-danger" data-toggle="tooltip" title="remove">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </button>
-                                </div>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-md-3">
-                    <div class="thumbnail">
-                        <img src="/images/shared/placeholders/lindt.png" alt="lindt">
-                        <div class="caption">
-                            <p><strong>assigned to :</strong> Michael FORASTE {{{ $project->user_id }}}</p>
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-default" data-toggle="tooltip" title="change">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                </button>
-                                <button type="button" class="btn btn-danger" data-toggle="tooltip" title="remove">
-                                    <span class="glyphicon glyphicon-remove-sign"></span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  {{ View::make('project::site.partials.tickets', ['project' => $project, 'ticket' => $ticket]) }}
+                  {{ View::composer('project::site.partials.tickets', 'TicketsComposer') }}
             </div>
         </div>
         <div class="tab-pane fade" id="team" class="team">
@@ -258,6 +195,12 @@
 @section('script')
 @parent
 {{HTML::script('js/project/project.min.js')}}
+<script>
+  $('.list-group-item').click(function() {
+    $("a.active").removeClass("active");
+    $(this).addClass('active');
+  });
+</script>
 <script>
     var lineChartData = {
         labels: ["04/08", "05/08", "06/08", "07/08", "08/08", "09/08", "10/08"],
