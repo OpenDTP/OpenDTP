@@ -52,8 +52,8 @@ class TicketController extends Controller
      */
     public function show($project_id, $ticket_id)
     {
-        $ticket = Api::get("api/v1/project/$project_id/ticket/$ticket_id", Session::get('session.token'));
-        return View::make('project::site.project.show', ['ticket' => $ticket]);
+        $ticket = Api::get("api/v1/ticket/$ticket_id", Session::get('session.token'));
+        return View::make('project::site.partials.tickets', ['ticket' => $ticket]);
     }
 
 

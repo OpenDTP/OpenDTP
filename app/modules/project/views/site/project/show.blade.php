@@ -59,15 +59,14 @@
                     </form>
                     <div class="list-group">
                       @foreach($tickets as $ticket)
-                        <a href="#" class="list-group-item">
+                        <a href="{{ URL::to('project/' . $project->id . '/ticket/' . $ticket->id) }}" class="list-group-item">
                             <h4 class="list-group-item-heading"><span class="label label-default">#{{{$ticket->id}}}</span> {{{$ticket->name}}}</h4>
                             <p><strong>points :</strong> 5</p>
                         </a>
                       @endforeach
                     </div>
                 </div>
-                  {{ View::make('project::site.partials.tickets', ['project' => $project, 'ticket' => $ticket]) }}
-                  {{ View::composer('project::site.partials.tickets', 'TicketsComposer') }}
+                <div id="pageLoad"></div>
             </div>
         </div>
         <div class="tab-pane fade" id="team" class="team">
@@ -199,6 +198,8 @@
   $('.list-group-item').click(function() {
     $("a.active").removeClass("active");
     $(this).addClass('active');
+    $("#pageLoad").load($(this).attr("href"));
+    return false;
   });
 </script>
 <script>

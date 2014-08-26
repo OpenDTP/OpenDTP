@@ -69,8 +69,8 @@ class ProjectController extends Controller
     public function show($id)
     {
         $project = Api::get("api/v1/project/$id", Session::get('session.token'));
-//        $tickets = Api::get("api/v1/project/$id/ticket", Session::get('session.token'));
-        return View::make('project::site.project.show', ['project' => $project]);
+        $tickets = Api::get("api/v1/project/$id/ticket", Session::get('session.token'));
+        return View::make('project::site.project.show', ['project' => $project, 'tickets' => $tickets]);
     }
 
 
