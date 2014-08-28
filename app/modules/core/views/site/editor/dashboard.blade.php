@@ -7,19 +7,16 @@
 @section('content')
 <div class="panel panel-default">
     <div class="panel-heading">
-        <h3 class="panel-title">Publications en cours</h3>
+        <h3 class="panel-title">Pending publications</h3>
     </div>
     <div class="panel-body">
         <div class="coffeeflow">
-            <a href="img/1.jpg"><img src="img/1.jpg" alt=""></a>
-            <a href="img/2.jpg"><img src="img/2.jpg" alt=""></a>
-            <a href="img/3.jpg"><img src="img/3.jpg" alt=""></a>
-            <a href="img/1.jpg"><img src="img/1.jpg" alt=""></a>
-            <a href="img/2.jpg"><img src="img/2.jpg" alt=""></a>
-            <a href="img/3.jpg"><img src="img/3.jpg" alt=""></a>
-            <a href="img/1.jpg"><img src="img/1.jpg" alt=""></a>
-            <a href="img/2.jpg"><img src="img/2.jpg" alt=""></a>
-            <a href="img/3.jpg"><img src="img/3.jpg" alt=""></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
+            <a href="img/3.jpg"><img src="img/3.jpg" alt="test"></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
         </div>
     </div>
 </div>
@@ -38,15 +35,15 @@
                 <tbody>
                 <tr class="danger">
                     <td>15/07 11:00</td>
-                    <td>Revue mise en page Bib News</td>
+                    <td>Page edition of Bib News</td>
                 </tr>
                 <tr class="danger">
                     <td>15/07 16:00</td>
-                    <td>Appel imprimeur W2P</td>
+                    <td>Call printing W2P</td>
                 </tr>
                 <tr class="warning">
                     <td>16/07 17:00</td>
-                    <td>Reu design flyers 2015</td>
+                    <td>Meeting design flyers 2015</td>
                 </tr>
                 </tbody>
             </table>

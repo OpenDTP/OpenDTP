@@ -33,6 +33,7 @@
         <li><a href="#team" role="tab" data-toggle="tab">{{{ Lang::get('global.team') }}}</a></li>
         <li><a href="#calendar" role="tab" data-toggle="tab">{{{ Lang::get('global.calendar') }}}</a></li>
         <li><a href="#activity" role="tab" data-toggle="tab">{{{ Lang::get('global.activity') }}}</a></li>
+        <li><a href="#documents" role="tab" data-toggle="tab">{{{ Lang::get('global.documents') }}}</a></li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane fade in active" id="status">
@@ -112,7 +113,7 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="thumbnail">
-                                    <img src="/images/shared/placeholders/lindt.png" alt="lindt">
+                                    <img src="/images/shared/placeholders/michael.jpeg" alt="lindt">
                                     <div class="caption">
                                         <h3>lead</h3>
                                         <p>short description of this member</p>
@@ -187,6 +188,10 @@
                     <p><strong>objective :</strong> 35</p>
                 </div>
             </div>
+        </div>
+        <div class="tab-pane fade" id="documents">
+          {{ Form::open(array('action'=>'App\Modules\Editor\Controllers\EditorController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
+          {{ Form::close(); }}
         </div>
     </div>
 </div>
