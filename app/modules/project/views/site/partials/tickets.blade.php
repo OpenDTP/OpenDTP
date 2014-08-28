@@ -2,11 +2,11 @@
     <h3>{{{$ticket->name}}}</h3>
     <p>{{{$ticket->description}}}</p>
     <hr />
-    <p><strong>result :</strong> logoopendtp.svg</p>
-    <p><strong>version :</strong> 1.0</p>
-    <p><strong>run associated :</strong> 2</p>
+    <p><strong>result :</strong> {{{$ticket->result}}}</p>
+    <p><strong>version :</strong> {{{$ticket->version}}}</p>
+    <p><strong>run associated :</strong> {{{$ticket->run_num}}}</p>
     <p><strong>status :</strong> Validated</p>
-    <p><strong>last progress :</strong> 03/08/2014 - 10:14</p>
+    <p><strong>last progress :</strong> {{{$ticket->updated_at}}}</p>
     <hr />
     <h4>Files attached to this document</h4>
     <table class="table table-hover table-condensed attached-files">
@@ -38,7 +38,7 @@
 </div>
 <div class="col-md-3">
     <div class="thumbnail">
-        <img src="/images/shared/placeholders/lindt.png" alt="lindt">
+        <img src="/images/shared/placeholders/michael.jpeg" alt="lindt">
         <div class="caption">
             <p><strong>assigned to :</strong> Michael FORASTE </p>
             <div class="btn-group">

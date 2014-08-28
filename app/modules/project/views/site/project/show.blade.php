@@ -59,8 +59,8 @@
                     </form>
                     <div class="list-group">
                       @foreach($tickets as $ticket)
-                        <a href="{{ URL::to('project/' . $project->id . '/ticket/' . $ticket->id) }}" class="list-group-item">
-                            <h4 class="list-group-item-heading"><span class="label label-default">#{{{$ticket->id}}}</span> {{{$ticket->name}}}</h4>
+                        <a href="{{ URL::to('project/' . $project->id . 'r/ticket/' . $ticket->id) }}" class="list-group-item">
+                            <h4 class="list-group-item-heading"><span class="label label-default">#{{{$ticket->ticket_id}}}</span> {{{$ticket->name}}}</h4>
                             <p><strong>points :</strong> 5</p>
                         </a>
                       @endforeach
