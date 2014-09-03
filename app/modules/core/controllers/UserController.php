@@ -29,7 +29,7 @@ class UserController extends Controller
         $user = $this->user->find($id);
 
         if ($user) {
-            return View::make('core::site.user.show', compact('user'));
+          return View::make('project::site.partials.team', compact('user'));
         }
         App::abort(404);
     }

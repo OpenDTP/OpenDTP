@@ -68,9 +68,18 @@ class ProjectController extends Controller
      */
     public function show($id)
     {
+        $users = array();
         $project = Api::get("api/v1/project/$id", Session::get('session.token'));
         $tickets = Api::get("api/v1/project/$id/ticket", Session::get('session.token'));
-        return View::make('project::site.project.show', ['project' => $project, 'tickets' => $tickets]);
+        $teams = Api::get("api/v1/project/$id/team", Session::get('session.token'));
+        foreach ($teams as $team) {
+            $user = Api::get("api/v1/user/$team->user_id", Session::get('session.token'));
+            array_push($users, $user);
+        }
+        return View::make('project::site.project.show', ['project' => $project,
+                                                         'tickets' => $tickets,
+                                                         'teams' => $teams,
+                                                         'users' => $users]);
     }
 
 

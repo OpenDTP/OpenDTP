@@ -13,7 +13,7 @@
         <div class="coffeeflow">
             <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
             <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
-            <a href="img/3.jpg"><img src="img/3.jpg" alt="test"></a>
+            <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
             <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
             <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
             <a href="images/shared/texte_and_logo_360.png"><img src="images/shared/texte_and_logo_360.png" alt=""></a>
