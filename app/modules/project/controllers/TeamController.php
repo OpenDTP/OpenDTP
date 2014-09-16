@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Session;
 use App\Modules\Core\Models\Api;
 
-class TicketController extends Controller
+class TeamController extends Controller
 {
 
     /**
@@ -17,8 +17,8 @@ class TicketController extends Controller
      */
     public function index($project_id)
     {
-        $tickets = Api::get('api/v1/project/$project_id/ticket', Session::get('session.token'));
-        return View::make('project::site.project.list', ['ticket' => $tickets]);
+        $teams = Api::get('api/v1/project/$project_id/team', Session::get('session.token'));
+        return View::make('project::site.project.list', ['team' => $teams]);
     }
 
 
@@ -47,13 +47,13 @@ class TicketController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $ticket_id
+     * @param  int $team_id
      * @return Response
      */
-    public function show($project_id, $ticket_id)
+    public function show($project_id, $team_id)
     {
-        $ticket = Api::get("api/v1/ticket/$ticket_id", Session::get('session.token'));
-        return View::make('project::site.partials.tickets', ['ticket' => $ticket]);
+        $team = Api::get("api/v1/team/$team_id", Session::get('session.token'));
+        return View::make('project::site.partials.teams', ['team' => $team]);
     }
 
 

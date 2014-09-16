@@ -5,7 +5,6 @@
 //= include ../../../bower_components/coffee-flow/js/coffeeflow.js
 //= include ../../../bower_components/Chart.js/Chart.js
 //= include ../../../bower_components/toastr/toastr.js
-//= include ../../../bower_components/fullcalendar/dist/fullcalendar.js
 //= include ../../../bower_components/dropzone/downloads/dropzone.js
 //= include ../../../bower_components/jquery-validation/dist/additional-methods.js
 //= include ../../../bower_components/jquery-validation/dist/jquery.validate.js

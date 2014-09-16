@@ -11,18 +11,19 @@ return array(
     |
     */
 
-    'name' => 'name',
-    'description' => 'description',
-    'end' => 'end',
-    'status' => 'status',
-    'actions' => 'actions',
-    'team' => 'team',
+    'name' => 'Project Name',
+    'description' => 'Description',
+    'end' => 'Deliver Date',
+    'status' => 'Status',
+    'actions' => 'Actions',
+    'team' => 'Team',
     'search' => 'search',
-    'calendar' => 'calendar',
-    'activity' => 'activity',
+    'calendar' => 'Calendar',
+    'activity' => 'Activity',
     'edit' => 'edit',
     'delete' => 'delete',
     'progress' => 'progress',
-    'tasks' => 'tasks',
+    'tasks' => 'Tasks',
+    'documents' => 'Documents',
 
 );

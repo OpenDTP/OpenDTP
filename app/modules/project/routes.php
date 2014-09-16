@@ -18,5 +18,10 @@ Route::group(
             'project',
             'App\Modules\Project\Controllers\ProjectController'
         );
+        Route::get(
+            'project/{project_id}/ticket/{id}',
+            'App\Modules\Project\Controllers\TicketController@show'
+        );
+
     }
 );

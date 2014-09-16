@@ -12,9 +12,6 @@
 @stop
 {{-- Content --}}
 @section('content')
-{{ Form::open(array('action'=>'App\Modules\Editor\Controllers\EditorController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
-{{ Form::close(); }}
-
 <div style="overflow: auto; padding: 20px; margin: 20px;  border-style:groove;">
 	<div  id="inline1_outer" style="width: 500px; float: left;">
 		<div contenteditable="true" id="inline1" style="width: 500px; float: left;">
