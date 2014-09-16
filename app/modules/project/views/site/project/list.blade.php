@@ -28,7 +28,7 @@
         <tr>
             <td>{{{ $project->name }}}</td>
             <td>{{{ $project->description }}}</td>
-            <td>{{{ $project->end }}}</td>
+            <td></td>
             <td class="status status-ok"><span class="glyphicon glyphicon-ok-circle"></span></td>
             <td>
                 <div class="btn-group">
