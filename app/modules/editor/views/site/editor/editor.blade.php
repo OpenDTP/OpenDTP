@@ -12,9 +12,9 @@
 @stop
 {{-- Content --}}
 @section('content')
-<div style="overflow: auto; padding: 20px; margin: 20px;  border-style:groove;">
-	<div  id="inline1_outer" style="width: 500px; float: left;">
-		<div contenteditable="true" id="inline1" style="width: 500px; float: left;">
+<div style="overflow: auto; padding: 10px; margin: 10px;  border-style:groove;">
+	<div  id="inline1_outer" >
+		<div contenteditable="true" id="inline1" >
 			<h3>Inline1</h3>
 			<p>Donec ullamcorper, risus tortor, pretium porttitor. Morbi quam quis lectus non leo.</p>
 			<p style="margin-left: 40px;">Integer faucibus scelerisque. Proin faucibus at, aliquet vulputate, odio at eros. Fusce <a href="http://tinymce.com/">gravida, erat vitae augue</a>. Fusce urna fringilla gravida.</p>
@@ -26,17 +26,12 @@
 			<p>In hac habitasse platea dictumst. Praesent wisi accumsan sit amet nibh. Maecenas orci luctus a, lacinia quam sem, posuere commodo, odio condimentum tempor, pede semper risus. Suspendisse pede. In hac habitasse platea dictumst. Nam sed laoreet sit amet erat. Integer.</p>
 		</div>
 	</div>
-	<div contenteditable="true" id="inline2" style="width: 500px; float: right;">
-		<h3>Inline2</h3>
-		<p>Donec ullamcorper, risus tortor, pretium porttitor. Morbi quam quis lectus non leo.</p>
-		<p style="margin-left: 40px;">Integer faucibus scelerisque. Proin faucibus at, aliquet vulputate, odio at eros. Fusce <a href="http://ckeditor.com/">gravida, erat vitae augue</a>. Fusce urna fringilla gravida.</p>
-		<p>In hac habitasse platea dictumst. Praesent wisi accumsan sit amet nibh. Maecenas orci luctus a, lacinia quam sem, posuere commodo, odio condimentum tempor, pede semper risus. Suspendisse pede. In hac habitasse platea dictumst. Nam sed laoreet sit amet erat. Integer.</p>
-	</div>
 </div>
 @stop
 @section('script')
 @parent
 {{HTML::script('js/core/core.min.js')}}
+{{HTML::script('tinymce/tinymce.js')}}
 <script>
 	Dropzone.options.myAwesomeDropzone = {
 	  paramName: "file", // The name that will be used to transfer the file
@@ -48,14 +43,21 @@
 </script>
 <script>
     tinymce.init({
-        selector: "#inline1,#inline2",
+        selector: "#inline1",
         theme: "modern",
         add_unload_trigger: false,
+        plugins: "image",
         menu: {},
         schema: "html5",
-        inline: true,
-        toolbar: "undo redo | styleselect | bullist numlist | preview",
-        statusbar: false
+        inline: false,
+        toolbar: "undo redo | styleselect | bullist numlist | alignleft aligncenter alignright alignjustify | preview | image | mybutton",
+        statusbar: false,
+        setup: function(editor) {
+	        editor.addButton('mybutton', {
+	            text: 'Save',
+	            icon: 'save',
+        });
+    }
     });
 </script>
 @stop
