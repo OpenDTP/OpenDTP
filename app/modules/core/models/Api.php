@@ -29,7 +29,7 @@ class Api extends \Eloquent
         if ($response->body->code !== 200) {
             throw new \Exception(
                 'API request failed on GET of [' . $query . ']: ' . print_r($response->body->messages, true),
-                $response->body->code
+                is_int($response->body->code) ? $response->body->code : 500
             );
         }
         return ($response->body->data);
@@ -58,7 +58,7 @@ class Api extends \Eloquent
         if ($response->body->code !== 200) {
             throw new \Exception(
                 'API request failed on PUT of [' . $query . ']: ' . print_r($response->body->messages, true),
-                $response->body->code
+                is_int($response->body->code) ? $response->body->code : 500
             );
         }
         return ($response->body->data);
@@ -93,7 +93,7 @@ class Api extends \Eloquent
         if ($response->body->code !== 200) {
             throw new \Exception(
                 'API request failed on POST of [' . $query . ']: ' . print_r($response->body->messages, true),
-                $response->body->code
+                is_int($response->body->code) ? $response->body->code : 500
             );
         }
         return ($response->body->data);
@@ -123,7 +123,7 @@ class Api extends \Eloquent
             $code = isset($response->body->code) ? $response->message->code : 500;
             throw new \Exception(
                 'Internal API error on authentification of [' . $url . ']: ' . print_r($message, true),
-                $code
+                is_int($response->body->code) ? $response->body->code : 500
             );
         }
         return ($response);
