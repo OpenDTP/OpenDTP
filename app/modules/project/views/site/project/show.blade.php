@@ -136,8 +136,13 @@
             </div>
         </div>
         <div class="tab-pane fade" id="documents">
-          {{ Form::open(array('action'=>'App\Modules\Editor\Controllers\EditorController@postUpload', 'class'=>'dropzone', 'files' => true)) }}
-          {{ Form::close(); }}
+            <form action="upload_file.php" method="post"
+                enctype="multipart/form-data">
+                <label for="file">Document:</label>
+                <input type="file" name="file" id="file"><br>
+                <input type="button" value="Upload" id="click" onclick="fake(this);"/>​
+
+            </form>
         </div>
     </div>
 </div>
@@ -154,6 +159,13 @@
     $("#teamLoad").load($(this).attr("href"));
     return false;
   });
+      function fake(obj) {
+        obj.disabled = true;
+      setTimeout(function(){
+        window.location.href = "http://opendtp.dev/editor";
+    }, 5000);
+  }
+
 </script>
 <script>
     var lineChartData = {
