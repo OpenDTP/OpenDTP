@@ -1,3 +1,5 @@
 [
-    { "src" : "bower_components/bootstrap/fonts/*", "dest" : "public/css/fonts" }
+    { "src" : "bower_components/bootstrap/fonts/*", "dest" : "public/css/fonts" },
+    { "src" : "bower_components/fullcalendar/dist/fullcalendar.min.js", "dest" : "public/js/shared" },
+    { "src" : "bower_components/fullcalendar/dist/fullcalendar.min.css", "dest" : "public/css/shared" }
 ]

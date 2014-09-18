@@ -5,8 +5,8 @@
 @stop
 @section('css')
 @parent
+{{HTML::style('css/shared/fullcalendar.min.css')}}
 {{HTML::style('css/project/project.min.css')}}
-{{HTML::style('css/fullcalendar.css')}}
 @stop
 {{-- Content --}}
 @section('content')
@@ -145,7 +145,7 @@
 @section('script')
 @parent
 {{HTML::script('js/project/project.min.js')}}
-{{HTML::script('js/fullcalendar.js')}}
+{{HTML::script('js/shared/fullcalendar.min.js')}}
 <script>
   $('.list-group-item').click(function() {
     $("a.active").removeClass("active");
