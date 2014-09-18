@@ -196,7 +196,7 @@
                             {
                                 title  : 'OpenDTP Demo',
                                 start  : '2014-09-19',
-                                color  : '#BABABA'
+                                backgroundColor  : '#BABABA'
                             },
                             {
                                 title  : '#1 Ticket!',
