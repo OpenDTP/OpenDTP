@@ -26,7 +26,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = $this->user->find($id);
+        $user = Api::get('api/v1/user/' . $id, Session::get('session.token'));
 
         if ($user) {
           return View::make('project::site.partials.team', compact('user'));
@@ -42,7 +42,7 @@ class UserController extends Controller
    */
     public function getEdit($id)
     {
-        $user = $this->user->find($id);
+        $user = Api::get('api/v1/user/' . $id, Session::get('session.token'));
 
         if ($user) {
             return View::make('core::site.user.edit', compact('user'));
@@ -57,7 +57,7 @@ class UserController extends Controller
    */
     public function store()
     {
-        $user = $this->user->create(Input::all());
+        $user = Api::post('api/v1/user', Input::all(), null, Session::get('session.token'));
 
         if ($user) {
             return Redirect::route('core::site.user.show', $user->id)->with('message', 'The user has been created!');
@@ -72,7 +72,7 @@ class UserController extends Controller
    */
     public function update()
     {
-        $user = $this->user->update(Input::all());
+        $user = Api::put('api/v1/user', Input::all(), Session::get('session.token'));
 
         if ($user) {
             return Redirect::route('core::site.user.show', $user->id)->with('message', 'The user has been created!');

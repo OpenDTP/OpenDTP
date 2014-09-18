@@ -69,7 +69,7 @@ class Api extends \Eloquent
      * @param  Query $query $body $token
      * @return Query
      */
-    public static function post($query, $body, $mime = "", $token = "", $files = array())
+    public static function post($query, $body, $mime = null, $token = "", $files = array())
     {
         $api_url = Config::get('opendtp/api.url');
 
