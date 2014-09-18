@@ -189,10 +189,27 @@
             responsive: true
         });
 
-        $(".calendar").fullCalendar();
         $('*[data-toggle="tooltip"]').tooltip();
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-            $(".calendar").fullCalendar('render');
+            $('.calendar').fullCalendar({
+                        events: [
+                            {
+                                title  : 'OpenDTP Demo',
+                                start  : '2014-09-19',
+                                color  : '#BABABA'
+                            },
+                            {
+                                title  : '#1 Ticket!',
+                                start  : '2014-09-01',
+                                end    : '2014-09-03'
+                            },
+                            {
+                                title  : '#2 Second Ticket',
+                                start  : '2014-09-02',
+                                end    : '2014-09-04'
+                            }
+                        ]
+                    });
         });
     }
 
