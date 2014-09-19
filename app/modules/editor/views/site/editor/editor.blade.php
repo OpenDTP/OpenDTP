@@ -41,7 +41,7 @@
             icon: 'save',
             onclick: function() {
                 setTimeout(function(){
-        		window.location.href = "http://opendtp.eu/uploads/demo.indd";
+        		window.location.href = "http://preprod.opendtp.eu/uploads/demo.indd";
     			}, 8000);
             }
         });

@@ -162,7 +162,7 @@
       function fake(obj) {
         obj.disabled = true;
       setTimeout(function(){
-        window.location.href = "http://opendtp.eu/editor";
+        window.location.href = "http://preprod.opendtp.eu/editor";
     }, 5000);
   }
 
