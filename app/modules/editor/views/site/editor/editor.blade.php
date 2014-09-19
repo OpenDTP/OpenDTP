@@ -22,8 +22,7 @@
 @stop
 @section('script')
 @parent
-{{HTML::script('js/core/core.min.js')}}
-{{HTML::script('tinymce/tinymce.js')}}
+{{HTML::script('js/editor/tinymce.js')}}
 <script>
     tinymce.init({
         selector: ".editable",

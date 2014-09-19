@@ -1,1 +1,1 @@
-//= include ../../../../../bower_components/tinymce/tinymce.jquery.js
+//= include ../../../../../bower_components/tinymce/tinymce.js

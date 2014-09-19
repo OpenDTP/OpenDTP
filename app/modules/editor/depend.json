@@ -1,0 +1,6 @@
+[
+    { "src" : "bower_components/tinymce/tinymce.js", "dest" : "public/js/editor" },
+    { "src" : "bower_components/tinymce/plugins/**", "dest" : "public/js/editor/plugins" },
+    { "src" : "bower_components/tinymce/themes/**", "dest" : "public/js/editor/themes" },
+    { "src" : "bower_components/tinymce/skins/**", "dest" : "public/js/editor/skins" }
+]
